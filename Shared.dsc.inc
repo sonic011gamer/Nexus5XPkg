@@ -200,6 +200,10 @@
   gQcomTokenSpaceGuid.PcdUsb2PhyPortTune4Offset|0x0000008C
   gQcomTokenSpaceGuid.PcdUsb2GccPhyBcr|0xFC4004B8
 
+  # Fastboot
+  gEmbeddedTokenSpaceGuid.PcdAndroidFastbootUsbVendorId|0x18d1
+  gEmbeddedTokenSpaceGuid.PcdAndroidFastbootUsbProductId|0xd00d
+
   # Variable Services
   # Each Size of 0xA0000
   # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableBase|0x80000000
@@ -617,6 +621,14 @@
 
   # Graphics Driver
   Nexus5XPkg/Driver/SimpleFbDxe/SimpleFbDxe.inf
+
+  # USB
+  MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  # Fastboot
+  EmbeddedPkg/Drivers/AndroidFastbootTransportUsbDxe/FastbootTransportUsbDxe.inf
+  EmbeddedPkg/Application/AndroidFastboot/AndroidFastbootApp.inf
 
   # BDS
   MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
