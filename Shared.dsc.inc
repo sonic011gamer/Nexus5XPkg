@@ -361,6 +361,8 @@
   MicroLibC|Nexus5XPkg/Library/MicroLibC/MicroLibC.inf
   StrLib|Nexus5XPkg/Library/StrLib/StrLib.inf
   QcomPlatformI2cQupLib|Nexus5XPkg/Library/StaticQcomPlatformI2cQupLib/StaticQcomPlatformI2cQupLib.inf
+  QcomPlatformUsbLib|Nexus5XPkg/Library/QcomPlatformUsbLib/QcomPlatformUsbLib.inf
+  QcomUsbPhyLib|Nexus5XPkg/Library/QcomUsbPhyLib/QcomUsbPhyLib.inf
   SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
   SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
   PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
@@ -578,6 +580,7 @@
   Nexus5XPkg/Driver/SmemDxe/SmemDxe.inf
   Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableDxe.inf
   Nexus5XPkg/Driver/SmdRpmDxe/RpmDxe.inf
+  Nexus5XPkg/Driver/UsbDxe/UsbDxe.inf
   Nexus5XPkg/Driver/SsbiDxe/SsbiDxe.inf
   Nexus5XPkg/Driver/BoardDxe/BoardDxe.inf
   Nexus5XPkg/Driver/RuntimeMemoryConfigDxe/RuntimeMemoryConfigDxe.inf
