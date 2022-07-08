@@ -18,6 +18,7 @@ echo "Installing build components..."
 apt-get install git-core git
 apt-get install build-essential
 apt-get install python3
+apt-get install mkbootimg
 
 # PowerShell
 # Import the public repository GPG keys
