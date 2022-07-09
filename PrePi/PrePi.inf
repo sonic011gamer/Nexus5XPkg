@@ -10,6 +10,8 @@
   EarlyQGic/EarlyQGic.c
 
 [Sources.AARCH64]
+  ReleaseInfo.S | GCC
+  ProcessorSupport.S | GCC
   ModuleEntryPoint.S | GCC
 
 [BuildOptions.AARCH64]
