@@ -29,7 +29,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec
 
 [LibraryClasses]
   DebugLib

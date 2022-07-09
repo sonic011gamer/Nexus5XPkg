@@ -38,4 +38,4 @@
   MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec

@@ -1,6 +1,6 @@
 [Defines]
   DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = Lumia950XLPkg
+  PACKAGE_NAME                   = Nexus5XPkg
   PACKAGE_GUID                   = 5fd522a5-b671-429f-957f-75113dd02435
   PACKAGE_VERSION                = 0.1
 
@@ -8,7 +8,7 @@
   Include                        # Root include for the package
 
 [Guids.common]
-  gLumia950XLPkgTokenSpaceGuid = { 0x4c59628e, 0x0a8a, 0x4099, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc4, 0xbf } }
+  gNexus5XPkgTokenSpaceGuid = { 0x4c59628e, 0x0a8a, 0x4099, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc4, 0xbf } }
   gQcomTokenSpaceGuid = { 0x59f58449, 0x99e1, 0x4a19, { 0x86, 0x65, 0x12, 0xd6, 0x37, 0xed, 0xbe, 0x5e } }
   gQcomUartDmBaseGuid = { 0xa1e1732a, 0xb28a, 0x41a1, { 0x87, 0x6d, 0xac, 0xa9, 0xfd, 0x76, 0x36, 0x40 } }
 
@@ -39,35 +39,35 @@
 
 [PcdsFixedAtBuild.common]
   # Simple FrameBuffer
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920|UINT32|0x0000a402
-  gLumia950XLPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403
+  gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
+  gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
+  gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920|UINT32|0x0000a402
+  gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403
 
   # SMBIOS
-  gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Lumia 950 XL"|VOID*|0x0000a301
-  gLumia950XLPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 810 Processor (8994)"|VOID*|0x0000a302
-  gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"RM-1085"|VOID*|0x0000a303
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Lumia 950 XL"|VOID*|0x0000a301
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 810 Processor (8994)"|VOID*|0x0000a302
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"RM-1085"|VOID*|0x0000a303
 
   # FD
-  gLumia950XLPkgTokenSpaceGuid.PcdFdBaseAddress|0x00200000|UINT64|0x0000a103
-  gLumia950XLPkgTokenSpaceGuid.PcdFdSize|0x00120000|UINT32|0x0000a104
+  gNexus5XPkgTokenSpaceGuid.PcdFdBaseAddress|0x00200000|UINT64|0x0000a103
+  gNexus5XPkgTokenSpaceGuid.PcdFdSize|0x00120000|UINT32|0x0000a104
 
   # Debug Screen Serial
-  gLumia950XLPkgTokenSpaceGuid.PcdEnableScreenSerial|FALSE|BOOLEAN|0x00000a105
+  gNexus5XPkgTokenSpaceGuid.PcdEnableScreenSerial|FALSE|BOOLEAN|0x00000a105
   
   # Memory allocation
-  gLumia950XLPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x20000000|UINT64|0x00000a106
-  gLumia950XLPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x78000000|UINT32|0x00000a107
+  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x20000000|UINT64|0x00000a106
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x78000000|UINT32|0x00000a107
 
   # RTC information
-  gLumia950XLPkgTokenSpaceGuid.PcdBootShimInfo1|0xb0000000|UINT64|0x00000a601
+  gNexus5XPkgTokenSpaceGuid.PcdBootShimInfo1|0xb0000000|UINT64|0x00000a601
 
   # MpPark
-  gLumia950XLPkgTokenSpaceGuid.SecondaryCpuStackSize|0x4000|UINT32|0x0000f001
-  gLumia950XLPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000|UINT64|0x0000f002
-  gLumia950XLPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|FALSE|BOOLEAN|0x0000f003
-  gLumia950XLPkgTokenSpaceGuid.PsciCpuSuspendAddress|0x06c03aa8|UINT64|0x0000f004
+  gNexus5XPkgTokenSpaceGuid.SecondaryCpuStackSize|0x4000|UINT32|0x0000f001
+  gNexus5XPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000|UINT64|0x0000f002
+  gNexus5XPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|FALSE|BOOLEAN|0x0000f003
+  gNexus5XPkgTokenSpaceGuid.PsciCpuSuspendAddress|0x06c03aa8|UINT64|0x0000f004
 
   # QTimer
   gQcomTokenSpaceGuid.PcdQTimerBase|0xF9021000|UINT64|0x00000050
@@ -159,12 +159,12 @@
   gQcomTokenSpaceGuid.PcdUartDmRxTotalSnapOffset|0|UINT64|0x0000002a
 
   # Synaptics 3202
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrAddress|0|UINT16|0x0002a501
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrResetPin|0|UINT32|0x0002a502
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrIntPin|0|UINT32|0x0002a503
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|0|UINT32|0x0002a504
-  gLumia950XLPkgTokenSpaceGuid.SynapticsXMax|0|UINT64|0x0002a505
-  gLumia950XLPkgTokenSpaceGuid.SynapticsYMax|0|UINT64|0x0002a506
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrAddress|0|UINT16|0x0002a501
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrResetPin|0|UINT32|0x0002a502
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrIntPin|0|UINT32|0x0002a503
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|0|UINT32|0x0002a504
+  gNexus5XPkgTokenSpaceGuid.SynapticsXMax|0|UINT64|0x0002a505
+  gNexus5XPkgTokenSpaceGuid.SynapticsYMax|0|UINT64|0x0002a506
 
   # RPM
   gQcomTokenSpaceGuid.PcdApcsAlias0IpcInterrupt|0|UINT64|0x000000b0
@@ -193,7 +193,7 @@
 
   # Boot Applications
   # 93be6759-7d1a-4d69-986d-d78e54c9f930
-  gLumia950XLPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }|VOID*|0x00000401
+  gNexus5XPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }|VOID*|0x00000401
 
 [PcdsFeatureFlag.common]
   # MMCHSDxe
@@ -207,7 +207,7 @@
   gQcomTokenSpaceGuid.PcdTcsrBootMiscDetect|0|UINT64|0x000000a0
 
   # LK Build
-  gLumia950XLPkgTokenSpaceGuid.PcdIsLkBuild|TRUE|BOOLEAN|0x0000b101
+  gNexus5XPkgTokenSpaceGuid.PcdIsLkBuild|TRUE|BOOLEAN|0x0000b101
   
   # RPM
   gQcomTokenSpaceGuid.PcdInstallRpmProtocol|FALSE|BOOLEAN|0x00000c100

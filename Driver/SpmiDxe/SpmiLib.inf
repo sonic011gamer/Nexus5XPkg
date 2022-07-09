@@ -13,7 +13,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   ArmPkg/ArmPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec
 
 [BuildOptions.AARCH64]
   GCC:*_*_*_CC_FLAGS = -Wno-incompatible-pointer-types

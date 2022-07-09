@@ -45,7 +45,7 @@
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdPciBusHotplugDeviceSupport|FALSE
 
-  gLumia950XLPkgTokenSpaceGuid.PcdIsLkBuild|FALSE
+  gNexus5XPkgTokenSpaceGuid.PcdIsLkBuild|FALSE
 
   gQcomTokenSpaceGuid.PcdMmcHs200Caps|FALSE
 
@@ -154,8 +154,8 @@
   # SoC Drivers UARTDM
   gQcomTokenSpaceGuid.PcdUartDmClkRxTxBitRate|0xCC
 
-  gLumia950XLPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x7800000      
-  gLumia950XLPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x20000000  # Start here
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x7800000      
+  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x20000000  # Start here
 
   ## Default Terminal Type
   ## 0-PCANSI, 1-VT100, 2-VT00+, 3-UTF8, 4-TTYTERM
@@ -163,20 +163,20 @@
 
   # Boot Manager
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x21, 0xaa, 0x2c, 0x46, 0x14, 0x76, 0x03, 0x45, 0x83, 0x6e, 0x8a, 0xb6, 0xf4, 0x66, 0x23, 0x31 }
-  gLumia950XLPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }
+  gNexus5XPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|2
 
   # Enable Debug
-  gLumia950XLPkgTokenSpaceGuid.PcdEnableScreenSerial|TRUE
+  gNexus5XPkgTokenSpaceGuid.PcdEnableScreenSerial|TRUE
 
   # SoC Drivers I2C
   gQcomTokenSpaceGuid.PcdGicSpiStart|32
 
   # Device Driver Synaptics 3202
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrAddress|0x4b
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrResetPin|38
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrIntPin|77
-  gLumia950XLPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|1
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrAddress|0x4b
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrResetPin|38
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrIntPin|77
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|1
 
   # RPM
   gQcomTokenSpaceGuid.PcdApcsAlias0IpcInterrupt|0xF900D008
@@ -208,17 +208,17 @@
   # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize|0x000A0000
   # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingBase|0x80140000 
   # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize|0x000A0000
-  # gLumia950XLPkgTokenSpaceGuid.PcdNvStorageVolatileStorageBase|0x801E0000
+  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVolatileStorageBase|0x801E0000
 
   # eMMC should have block size of 512 bytes. (Assert)
   # Allocate 640KB (less than provisioned) so 500 blocks
   # And times 3 for other regions
   # And it starts at the beginning of the logical partition of "uefi_vars"
   # Synchronize the change in LK when the size changes
-  # gLumia950XLPkgTokenSpaceGuid.PcdNvStorageVariableBlockCount|3840
-  # gLumia950XLPkgTokenSpaceGuid.PcdNvStorageVariableBlockSize|512
-  # gLumia950XLPkgTokenSpaceGuid.PcdNvStorageVariableBlockLba|0
-  # gLumia950XLPkgTokenSpaceGuid.PcdNvStorageScratchAddress|0x90000000
+  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVariableBlockCount|3840
+  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVariableBlockSize|512
+  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVariableBlockLba|0
+  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageScratchAddress|0x90000000
 
   # PCI Express
   gEfiMdeModulePkgTokenSpaceGuid.PcdSrIovSupport|FALSE
@@ -233,9 +233,9 @@
   gQcomTokenSpaceGuid.PcdQTimerBase|0xF9021000
 
   # Parking
-  gLumia950XLPkgTokenSpaceGuid.SecondaryCpuStackSize|0x2000
-  gLumia950XLPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000
-  gLumia950XLPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|TRUE
+  gNexus5XPkgTokenSpaceGuid.SecondaryCpuStackSize|0x2000
+  gNexus5XPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000
+  gNexus5XPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|TRUE
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxAuthVariableSize|0x2800
@@ -338,55 +338,55 @@
 
   # Platform Drivers
 !if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
-  SerialPortLib|Lumia950XLPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+  SerialPortLib|Nexus5XPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !else
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
 !endif
   
-  MemoryInitPeiLib|Lumia950XLPkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
-  PlatformPeiLib|Lumia950XLPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
-  PlatformBootManagerLib|Lumia950XLPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
+  MemoryInitPeiLib|Nexus5XPkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
+  PlatformPeiLib|Nexus5XPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+  PlatformBootManagerLib|Nexus5XPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
 
   # SoC Drivers
-  InterruptsLib|Lumia950XLPkg/Library/InterruptsLib/InterruptsLib.inf
-  MallocLib|Lumia950XLPkg/Library/MallocLib/MallocLib.inf
-  KeypadDeviceHelperLib|Lumia950XLPkg/Library/KeypadDeviceHelperLib/KeypadDeviceHelperLib.inf
-  KeypadDeviceImplLib|Lumia950XLPkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
-  DloadUtilLib|Lumia950XLPkg/Library/DloadUtilLib/DloadUtilLib.inf
-  QcomPlatformClockInitLib|Lumia950XLPkg/Library/QcomPlatformClockInitLib/QcomPlatformClockInitLib.inf
-  QcomPlatformMmcLib|Lumia950XLPkg/Library/PlatformMmcLib/QcomPlatformMmcLib.inf
-  QcomPlatformMmcClockOverrideLib|Lumia950XLPkg/Library/QcomPlatformMmcClockOverrideLib/QcomPlatformMmcClockOverrideLib.inf
-  QcomTargetMmcSdhciLib|Lumia950XLPkg/Library/TargetMmcSdhciLib/QcomTargetMmcSdhciLib.inf
-  LcmLib|Lumia950XLPkg/Library/LcmLib/LcmLib.inf
-  MicroLibC|Lumia950XLPkg/Library/MicroLibC/MicroLibC.inf
-  StrLib|Lumia950XLPkg/Library/StrLib/StrLib.inf
-  QcomPlatformI2cQupLib|Lumia950XLPkg/Library/StaticQcomPlatformI2cQupLib/StaticQcomPlatformI2cQupLib.inf
-  SmemLib|Lumia950XLPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Lumia950XLPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Lumia950XLPkg/Library/PTableLib/PTableLib.inf
-  SsbiLib|Lumia950XLPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Lumia950XLPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Lumia950XLPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Lumia950XLPkg/Library/PlatformIdLib/PlatformIdLib.inf
-  QTimerLib|Lumia950XLPkg/Library/QTimerLib/QTimerLib.inf
+  InterruptsLib|Nexus5XPkg/Library/InterruptsLib/InterruptsLib.inf
+  MallocLib|Nexus5XPkg/Library/MallocLib/MallocLib.inf
+  KeypadDeviceHelperLib|Nexus5XPkg/Library/KeypadDeviceHelperLib/KeypadDeviceHelperLib.inf
+  KeypadDeviceImplLib|Nexus5XPkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
+  DloadUtilLib|Nexus5XPkg/Library/DloadUtilLib/DloadUtilLib.inf
+  QcomPlatformClockInitLib|Nexus5XPkg/Library/QcomPlatformClockInitLib/QcomPlatformClockInitLib.inf
+  QcomPlatformMmcLib|Nexus5XPkg/Library/PlatformMmcLib/QcomPlatformMmcLib.inf
+  QcomPlatformMmcClockOverrideLib|Nexus5XPkg/Library/QcomPlatformMmcClockOverrideLib/QcomPlatformMmcClockOverrideLib.inf
+  QcomTargetMmcSdhciLib|Nexus5XPkg/Library/TargetMmcSdhciLib/QcomTargetMmcSdhciLib.inf
+  LcmLib|Nexus5XPkg/Library/LcmLib/LcmLib.inf
+  MicroLibC|Nexus5XPkg/Library/MicroLibC/MicroLibC.inf
+  StrLib|Nexus5XPkg/Library/StrLib/StrLib.inf
+  QcomPlatformI2cQupLib|Nexus5XPkg/Library/StaticQcomPlatformI2cQupLib/StaticQcomPlatformI2cQupLib.inf
+  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
+  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
+  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
+  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
+  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
+  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
+  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
+  QTimerLib|Nexus5XPkg/Library/QTimerLib/QTimerLib.inf
 
   # RTC Private
-  Pm8x41LibRtcPrivate|Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  SpmiLib|Lumia950XLPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+  Pm8x41LibRtcPrivate|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
+  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
 
   # System Reset
   ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
-  EfiResetSystemLib|Lumia950XLPkg/Library/QcomPmicResetSystemLib/QcomPmicResetSystemLib.inf
-  RuntimeSpmiLib|Lumia950XLPkg/Library/RuntimeSpmiLib/RuntimeSpmiLib.inf
-  RuntimeSpmiMemoryConfiguratorLib|Lumia950XLPkg/Library/RuntimeSpmiMemoryConfiguratorLib/RuntimeSpmiMemoryConfiguratorLib.inf
+  EfiResetSystemLib|Nexus5XPkg/Library/QcomPmicResetSystemLib/QcomPmicResetSystemLib.inf
+  RuntimeSpmiLib|Nexus5XPkg/Library/RuntimeSpmiLib/RuntimeSpmiLib.inf
+  RuntimeSpmiMemoryConfiguratorLib|Nexus5XPkg/Library/RuntimeSpmiMemoryConfiguratorLib/RuntimeSpmiMemoryConfiguratorLib.inf
 
   # PCI Express Dependencies
-  QcomPlatformClock2Lib|Lumia950XLPkg/Library/QcomPlatformClock2Lib/QcomPlatformClock2Lib.inf
+  QcomPlatformClock2Lib|Nexus5XPkg/Library/QcomPlatformClock2Lib/QcomPlatformClock2Lib.inf
 
   # UI Llbrary and apps
-  LittleVglLib|Lumia950XLPkg/Library/LittleVglLib/LittleVglLib.inf
-  LodePngLib|Lumia950XLPkg/Library/LodePngLib/LodePngLib.inf
+  LittleVglLib|Nexus5XPkg/Library/LittleVglLib/LittleVglLib.inf
+  LodePngLib|Nexus5XPkg/Library/LodePngLib/LodePngLib.inf
 
 [LibraryClasses.common.SEC]
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
@@ -395,18 +395,18 @@
   PrePiHobListPointerLib|ArmPlatformPkg/Library/PrePiHobListPointerLib/PrePiHobListPointerLib.inf
   PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
   # SoC Drivers
-  GpioTlmmLib|Lumia950XLPkg/GPLDriver/GpioTlmmDxe/GpioTlmmImplLib.inf
-  SpmiLib|Lumia950XLPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Lumia950XLPkg/Driver/ClockDxe/ClockImplLib.inf
-  SmemLib|Lumia950XLPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Lumia950XLPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Lumia950XLPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Lumia950XLPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Lumia950XLPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Lumia950XLPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Lumia950XLPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Lumia950XLPkg/Library/PlatformIdLib/PlatformIdLib.inf
+  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmImplLib.inf
+  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
+  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockImplLib.inf
+  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
+  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
+  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
+  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
+  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
+  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
+  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
+  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
 
 [LibraryClasses.common.DXE_CORE]
   HobLib|MdePkg/Library/DxeCoreHobLib/DxeCoreHobLib.inf
@@ -427,20 +427,20 @@
   ExtractGuidedSectionLib|MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf
 
   # SoC Drivers
-  GpioTlmmLib|Lumia950XLPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
-  SpmiLib|Lumia950XLPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Lumia950XLPkg/Driver/ClockDxe/ClockLib.inf
-  I2cQupLib|Lumia950XLPkg/Driver/I2cQupDxe/I2cQupLib.inf
-  SmemLib|Lumia950XLPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Lumia950XLPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Lumia950XLPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Lumia950XLPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Lumia950XLPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Lumia950XLPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Lumia950XLPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Lumia950XLPkg/Library/PlatformIdLib/PlatformIdLib.inf
-  QcomDxeTimerLib|Lumia950XLPkg/Library/QTimerLib/QcomQTimerDxeTimerLib.inf
+  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
+  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
+  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockLib.inf
+  I2cQupLib|Nexus5XPkg/Driver/I2cQupDxe/I2cQupLib.inf
+  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
+  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
+  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
+  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
+  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
+  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
+  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
+  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
+  QcomDxeTimerLib|Nexus5XPkg/Library/QTimerLib/QcomQTimerDxeTimerLib.inf
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
@@ -456,18 +456,18 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   ExtractGuidedSectionLib|MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf
   # SoC Drivers
-  GpioTlmmLib|Lumia950XLPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
-  SpmiLib|Lumia950XLPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Lumia950XLPkg/Driver/ClockDxe/ClockLib.inf
-  SmemLib|Lumia950XLPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Lumia950XLPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Lumia950XLPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Lumia950XLPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Lumia950XLPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Lumia950XLPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Lumia950XLPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Lumia950XLPkg/Library/PlatformIdLib/PlatformIdLib.inf
+  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
+  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
+  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockLib.inf
+  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
+  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
+  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
+  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
+  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
+  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
+  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
+  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
@@ -482,18 +482,18 @@
   UefiScsiLib|MdePkg/Library/UefiScsiLib/UefiScsiLib.inf
   ExtractGuidedSectionLib|MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf
   # SoC Drivers
-  GpioTlmmLib|Lumia950XLPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
-  SpmiLib|Lumia950XLPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Lumia950XLPkg/Driver/ClockDxe/ClockLib.inf
-  SmemLib|Lumia950XLPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Lumia950XLPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Lumia950XLPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Lumia950XLPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Lumia950XLPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Lumia950XLPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Lumia950XLPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Lumia950XLPkg/Library/PlatformIdLib/PlatformIdLib.inf
+  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
+  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
+  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockLib.inf
+  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
+  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
+  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
+  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
+  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
+  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
+  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
+  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
@@ -509,7 +509,7 @@
 
   # System Reset
   ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
-  EfiResetSystemLib|Lumia950XLPkg/Library/QcomPmicResetSystemLib/QcomPmicResetSystemLib.inf
+  EfiResetSystemLib|Nexus5XPkg/Library/QcomPmicResetSystemLib/QcomPmicResetSystemLib.inf
 
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
@@ -519,9 +519,9 @@
 
 [Components.common]
   # PrePI
-  Lumia950XLPkg/PrePi/PrePi.inf {
+  Nexus5XPkg/PrePi/PrePi.inf {
     <LibraryClasses>
-    SerialPortLib|Lumia950XLPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+    SerialPortLib|Nexus5XPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
   }
 
   # DXE
@@ -549,39 +549,39 @@
   EmbeddedPkg/ResetRuntimeDxe/ResetRuntimeDxe.inf
   EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf {
     <LibraryClasses>
-	  RealTimeClockLib|Lumia950XLPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+	  RealTimeClockLib|Nexus5XPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
   }
 
   # SoC Drivers (Cross-referenced from EFIDroid)
-  Lumia950XLPkg/Driver/BamDxe/BamDxe.inf
-  Lumia950XLPkg/GPLDriver/GpioTlmmDxe/GpioTlmmDxe.inf
-  Lumia950XLPkg/GPLDriver/GpioTlmmInterruptDxe/GpioTlmmInterruptDxe.inf
-  Lumia950XLPkg/Driver/SpmiDxe/SpmiDxe.inf
-  Lumia950XLPkg/Driver/Pm8x41Dxe/Pm8x41Dxe.inf
-  Lumia950XLPkg/Driver/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
-  Lumia950XLPkg/Driver/KeypadDxe/KeypadDxe.inf
-  Lumia950XLPkg/Driver/ClockDxe/ClockDxe.inf
-  Lumia950XLPkg/Driver/SdhciMMCHSDxe/SdhciMMCHS.inf
-  Lumia950XLPkg/Driver/I2cQupDxe/I2cQupDxe.inf
-  Lumia950XLPkg/Driver/SmemDxe/SmemDxe.inf
-  Lumia950XLPkg/Driver/SmemPtableDxe/SmemPtableDxe.inf
-  Lumia950XLPkg/Driver/SmdRpmDxe/RpmDxe.inf
-  Lumia950XLPkg/Driver/SsbiDxe/SsbiDxe.inf
-  Lumia950XLPkg/Driver/BoardDxe/BoardDxe.inf
-  Lumia950XLPkg/Driver/RuntimeMemoryConfigDxe/RuntimeMemoryConfigDxe.inf
-  Lumia950XLPkg/Driver/PCIExpressConfiguratorDxe/PCIExpressConfiguratorDxe.inf
-  Lumia950XLPkg/Driver/TimerDxe/TimerDxe.inf
+  Nexus5XPkg/Driver/BamDxe/BamDxe.inf
+  Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmDxe.inf
+  Nexus5XPkg/GPLDriver/GpioTlmmInterruptDxe/GpioTlmmInterruptDxe.inf
+  Nexus5XPkg/Driver/SpmiDxe/SpmiDxe.inf
+  Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41Dxe.inf
+  Nexus5XPkg/Driver/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
+  Nexus5XPkg/Driver/KeypadDxe/KeypadDxe.inf
+  Nexus5XPkg/Driver/ClockDxe/ClockDxe.inf
+  Nexus5XPkg/Driver/SdhciMMCHSDxe/SdhciMMCHS.inf
+  Nexus5XPkg/Driver/I2cQupDxe/I2cQupDxe.inf
+  Nexus5XPkg/Driver/SmemDxe/SmemDxe.inf
+  Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableDxe.inf
+  Nexus5XPkg/Driver/SmdRpmDxe/RpmDxe.inf
+  Nexus5XPkg/Driver/SsbiDxe/SsbiDxe.inf
+  Nexus5XPkg/Driver/BoardDxe/BoardDxe.inf
+  Nexus5XPkg/Driver/RuntimeMemoryConfigDxe/RuntimeMemoryConfigDxe.inf
+  Nexus5XPkg/Driver/PCIExpressConfiguratorDxe/PCIExpressConfiguratorDxe.inf
+  Nexus5XPkg/Driver/TimerDxe/TimerDxe.inf
 
   # PreLoader checker
-  Lumia950XLPkg/Driver/PreLoaderDxe/PreLoaderDxe.inf
+  Nexus5XPkg/Driver/PreLoaderDxe/PreLoaderDxe.inf
 
   # Device Drivers
-  Lumia950XLPkg/Driver/SynapticsTouchDxe/SynapticsTouchDevice.inf
-  Lumia950XLPkg/Driver/SynapticsTouchDxe/SynapticsTouchDxe.inf
+  Nexus5XPkg/Driver/SynapticsTouchDxe/SynapticsTouchDevice.inf
+  Nexus5XPkg/Driver/SynapticsTouchDxe/SynapticsTouchDxe.inf
 
   # Debug heartbeat
 !if $(SEND_HEARTBEAT_TO_SERIAL) == 1
-  Lumia950XLPkg/Driver/HeartbeatDxe/HeartbeatDxe.inf
+  Nexus5XPkg/Driver/HeartbeatDxe/HeartbeatDxe.inf
 !endif
 
   # Runtime Services
@@ -605,11 +605,11 @@
 !endif
 
   # Graphics Driver
-  Lumia950XLPkg/Driver/SimpleFbDxe/SimpleFbDxe.inf
+  Nexus5XPkg/Driver/SimpleFbDxe/SimpleFbDxe.inf
 
   # Lattice UC120 Configuration
-  Lumia950XLPkg/Driver/LiCE40SpiConfigDxe/LiCE40SpiConfigDxe.inf
-  Lumia950XLPkg/GPLDriver/QupSpiDxe/QupSpiDxe.inf
+  Nexus5XPkg/Driver/LiCE40SpiConfigDxe/LiCE40SpiConfigDxe.inf
+  Nexus5XPkg/GPLDriver/QupSpiDxe/QupSpiDxe.inf
 
   # BDS
   MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -623,14 +623,14 @@
   MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  Lumia950XLPkg/Application/BdsMenuApp/BdsMenuApp.inf {
+  Nexus5XPkg/Application/BdsMenuApp/BdsMenuApp.inf {
     <LibraryClasses>
       NULL|MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf
       NULL|MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf
       NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
   }
-  Lumia950XLPkg/Driver/LogoDxe/LogoDxe.inf
-  Lumia950XLPkg/Application/BootSplashApp/BootSplashApp.inf
+  Nexus5XPkg/Driver/LogoDxe/LogoDxe.inf
+  Nexus5XPkg/Application/BootSplashApp/BootSplashApp.inf
 
   # Disk IO
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -642,8 +642,8 @@
 
   # ACPI and SMBIOS
   # We use pre-built ACPI tables, so only core components are loaded
-  Lumia950XLPkg/AcpiTables/Lumia950XLAcpiTables.inf
-  Lumia950XLPkg/Driver/SmBiosTableDxe/SmBiosTableDxe.inf
+  Nexus5XPkg/AcpiTables/Nexus5XAcpiTables.inf
+  Nexus5XPkg/Driver/SmBiosTableDxe/SmBiosTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf

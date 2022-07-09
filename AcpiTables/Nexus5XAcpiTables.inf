@@ -42,5 +42,5 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
-  Lumia950XLPkg/AcpiTables/Lumia950XLAcpiPreGen.dec
+  Nexus5XPkg/Nexus5XPkg.dec
+  Nexus5XPkg/AcpiTables/Nexus5XAcpiPreGen.dec

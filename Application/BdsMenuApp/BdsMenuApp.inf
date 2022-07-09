@@ -41,7 +41,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec
 
 [LibraryClasses]
   DevicePathLib
@@ -86,9 +86,9 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution    ## CONSUMES
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString           ## CONSUMES
   gEfiMdeModulePkgTokenSpaceGuid.PcdTestKeyUsed                     ## CONSUMES
-  gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemModel
-  gLumia950XLPkgTokenSpaceGuid.PcdSmbiosProcessorModel
-  gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
 
 [UserExtensions.TianoCore."ExtraFiles"]
   UiAppExtra.uni

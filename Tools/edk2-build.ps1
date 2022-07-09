@@ -21,18 +21,18 @@ Write-Host "Task: EDK2 build"
 if ($null -ne $env:BUILDALL) {
     Write-Output "User requested build all available targets."
     $availableTargets = @(
-        "Lumia950"
+        "Nexus5X"
     )
 }
 else {
     $availableTargets = @(
-        "Lumia950"
+        "Nexus5X"
     )
 }
 
 # Check package path.
-if ($null -eq (Test-Path -Path "Lumia950XLPkg")) {
-    Write-Error "Lumia950XLPkg is not found."
+if ($null -eq (Test-Path -Path "Nexus5XPkg")) {
+    Write-Error "Nexus5XPkg is not found."
     return -1
 }
 
@@ -71,9 +71,9 @@ if ($Clean -eq $true) {
         Write-Output "Clean target $($target)."
 
         if ($Release) {
-            build -a AARCH64 -p Lumia950XLPkg/$($target).dsc -t GCC5 clean -b RELEASE
+            build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5 clean -b RELEASE
         } else {
-            build -a AARCH64 -p Lumia950XLPkg/$($target).dsc -t GCC5 clean
+            build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5 clean
         }
 
         if (-not $?) {
@@ -91,8 +91,8 @@ if ($Clean -eq $true) {
 Write-Output "Stamp build."
 # This one is EDK2 base commit
 $edk2Commit = git rev-parse HEAD
-# This is Lumia950XLPkg package commit
-Set-Location Lumia950XLPkg
+# This is Nexus5XPkg package commit
+Set-Location Nexus5XPkg
 $commit = git rev-parse HEAD
 Set-Location ..
 $date = (Get-Date).Date.ToString("MM/dd/yyyy")
@@ -131,12 +131,12 @@ if ($commit) {
         "#endif"
     )
 
-    Set-Content -Path Lumia950XLPkg/Include/Resources/ReleaseInfo.h -Value $releaseInfoContent -ErrorAction SilentlyContinue -Force
+    Set-Content -Path Nexus5XPkg/Include/Resources/ReleaseInfo.h -Value $releaseInfoContent -ErrorAction SilentlyContinue -Force
 }
 
 # Build SSDT tables
 # Because this is quick enough, we build for any possible platforms
-# $ssdts = Get-ChildItem Lumia950XLPkg/AcpiTables/**/src/SSDT*.asl
+# $ssdts = Get-ChildItem Nexus5XPkg/AcpiTables/**/src/SSDT*.asl
 # if ($null -ne $ssdts) {
 #     foreach ($ssdt in $ssdts) {
 #         Write-Output "Build $($ssdt)."
@@ -156,11 +156,11 @@ if ($commit) {
 # }
 
 foreach ($target in $availableTargets) {
-    Write-Output "Build Lumia950XLPkg for $($target) (Release = $($Release))."
+    Write-Output "Build Nexus5XPkg for $($target) (Release = $($Release))."
     if ($Release) {
-        build -a AARCH64 -p Lumia950XLPkg/$($target).dsc -t GCC5 -b RELEASE
+        build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5 -b RELEASE
     } else {
-        build -a AARCH64 -p Lumia950XLPkg/$($target).dsc -t GCC5
+        build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5
     }
 
     if (-not $?) {

@@ -14,7 +14,7 @@
   MdePkg/MdePkg.dec
   ArmPkg/ArmPkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec
 
 [LibraryClasses]
   UefiDriverEntryPoint

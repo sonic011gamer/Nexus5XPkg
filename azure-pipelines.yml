@@ -1,4 +1,4 @@
-# Lumia950XLPkg CI build on VSTS
+# Nexus5XPkg CI build on VSTS
 
 trigger:
   branches:
@@ -22,7 +22,7 @@ steps:
   displayName: 'Install VSTS dependencies'
 
 # Fix-up directory link for VSTS, force replace current reference
-- script: sudo ln -sfn $(pwd) ../Lumia950XLPkg
+- script: sudo ln -sfn $(pwd) ../Nexus5XPkg
   displayName: 'Fix directory links'
 
 # Build iASL tool from repository
@@ -44,7 +44,7 @@ steps:
 
 # Publish UEFI (3 targets)
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish UEFI build (Lumia 950)'
+  displayName: 'Publish UEFI build (Nexus 5X)'
   inputs:
-    pathtoPublish: ../edk2/Build/Lumia950-AARCH64/DEBUG_GCC5/FV/uefi.img
-    artifactName: MSM8992 UEFI (Lumia 950)
+    pathtoPublish: ../edk2/Build/Nexus5X-AARCH64/DEBUG_GCC5/FV/uefi.img
+    artifactName: MSM8992 UEFI (Nexus 5X)

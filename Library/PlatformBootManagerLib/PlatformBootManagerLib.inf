@@ -40,7 +40,7 @@
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
   ShellPkg/ShellPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec
 
 [BuildOptions.AARCH64]
   GCC:*_*_*_CC_FLAGS = -Wno-unused-variable -Wno-unused-function
@@ -75,7 +75,7 @@
 
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
-  gLumia950XLPkgTokenSpaceGuid.PcdBootSplashAppFile
+  gNexus5XPkgTokenSpaceGuid.PcdBootSplashAppFile
 
 [Guids]
   gEfiFileInfoGuid
