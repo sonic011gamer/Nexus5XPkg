@@ -19,7 +19,10 @@
   Nexus5XPkg/Nexus5XPkg.dec
 
 [LibraryClasses]
+  ArmLib
   BaseLib
+  IoLib
+  TimerLib
   ReportStatusCodeLib
   UefiLib
   UefiBootServicesTableLib
