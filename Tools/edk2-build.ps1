@@ -21,13 +21,12 @@ Write-Host "Task: EDK2 build"
 if ($null -ne $env:BUILDALL) {
     Write-Output "User requested build all available targets."
     $availableTargets = @(
-        "Lumia950",
-        "Lumia950XL"
+        "Lumia950"
     )
 }
 else {
     $availableTargets = @(
-        "Lumia950XL"
+        "Lumia950"
     )
 }
 
