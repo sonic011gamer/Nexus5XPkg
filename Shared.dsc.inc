@@ -330,9 +330,17 @@
 
   # Platform Drivers
 !if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
+!if $(USE_MEMORY_FOR_SERIAL_OUTPUT) == 1
+  SerialPortLib|Nexus5XPkg/Library/FrameBufferInMemorySerialPortLib/FrameBufferInMemorySerialPortLib.inf
+!else
   SerialPortLib|Nexus5XPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+!endif
+!else
+!if $(USE_MEMORY_FOR_SERIAL_OUTPUT) == 1
+  SerialPortLib|Nexus5XPkg/Library/InMemorySerialPortLib/InMemorySerialPortLib.inf
 !else
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
+!endif
 !endif
   
   MemoryInitPeiLib|Nexus5XPkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
@@ -513,7 +521,19 @@
   # PrePI
   Nexus5XPkg/PrePi/PrePi.inf {
     <LibraryClasses>
-    SerialPortLib|Nexus5XPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+    !if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
+    !if $(USE_MEMORY_FOR_SERIAL_OUTPUT) == 1
+      SerialPortLib|Nexus5XPkg/Library/FrameBufferInMemorySerialPortLib/FrameBufferInMemorySerialPortLib.inf
+    !else
+      SerialPortLib|Nexus5XPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+    !endif
+    !else
+    !if $(USE_MEMORY_FOR_SERIAL_OUTPUT) == 1
+      SerialPortLib|Nexus5XPkg/Library/InMemorySerialPortLib/InMemorySerialPortLib.inf
+    !else
+      SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
+    !endif
+    !endif
   }
 
   # DXE
