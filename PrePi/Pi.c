@@ -71,8 +71,8 @@ VOID Main(IN VOID *StackBase, IN UINTN StackSize)
 #endif
 
 #if USE_MEMORY_FOR_SERIAL_OUTPUT == 1
-  PStoreMemoryBase = FixedPcdGet32(gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferAddress);
-  PStoreMemorySize = FixedPcdGet32(gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize);
+  PStoreMemoryBase = FixedPcdGet32(PcdPStoreBufferAddress);
+  PStoreMemorySize = FixedPcdGet32(PcdPStoreBufferSize);
 
   // Clear PStore area
   UINT8 *base = (UINT8 *)PStoreMemoryBase;
