@@ -61,15 +61,22 @@ VOID Main(IN VOID *StackBase, IN UINTN StackSize)
   EFI_HOB_HANDOFF_INFO_TABLE *HobList;
   EFI_STATUS                  Status;
 
-  UINTN MemoryBase     = 0;
-  UINTN MemorySize     = 0;
-  UINTN UefiMemoryBase = 0;
-  UINTN UefiMemorySize = 0;
+  UINTN MemoryBase       = 0;
+  UINTN MemorySize       = 0;
+  UINTN UefiMemoryBase   = 0;
+  UINTN UefiMemorySize   = 0;
+#if USE_MEMORY_FOR_SERIAL_OUTPUT == 1
+  UINTN PStoreMemoryBase = 0;
+  UINTN PStoreMemorySize = 0;
+#endif
 
 #if USE_MEMORY_FOR_SERIAL_OUTPUT == 1
+  PStoreMemoryBase = FixedPcdGet32(gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferAddress);
+  PStoreMemorySize = FixedPcdGet32(gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize);
+
   // Clear PStore area
-  UINT8 *base = (UINT8 *)0x1ff00000ull;
-  for (UINTN i = 0; i < 0x40000; i++) {
+  UINT8 *base = (UINT8 *)PStoreMemoryBase;
+  for (UINTN i = 0; i < PStoreMemorySize; i++) {
     base[i] = 0;
   }
 #endif
