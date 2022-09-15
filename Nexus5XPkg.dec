@@ -42,6 +42,8 @@
   gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
   gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920|UINT32|0x0000a402
   gNexus5XPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403
+  gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferAddress|0x00400000|UINT64|0x0000a404
+  gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize|0x00800000|UINT32|0x0000a405
 
   # SMBIOS
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Lumia 950 XL"|VOID*|0x0000a301
