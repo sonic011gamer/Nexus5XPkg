@@ -71,8 +71,8 @@ VOID Main(IN VOID *StackBase, IN UINTN StackSize)
 #endif
 
 #if USE_MEMORY_FOR_SERIAL_OUTPUT == 1
-  PStoreMemoryBase = FixedPcdGet32(PcdPStoreBufferAddress);
-  PStoreMemorySize = FixedPcdGet32(PcdPStoreBufferSize);
+  PStoreMemoryBase = 0x00400000;
+  PStoreMemorySize = 0x00800000;
 
   // Clear PStore area
   UINT8 *base = (UINT8 *)PStoreMemoryBase;
