@@ -77,6 +77,8 @@
   gNexus5XPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase
   gNexus5XPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck
   gNexus5XPkgTokenSpaceGuid.PsciCpuSuspendAddress
+  gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferAddress
+  gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize
 
 [FeaturePcd]
   gNexus5XPkgTokenSpaceGuid.PcdIsLkBuild
