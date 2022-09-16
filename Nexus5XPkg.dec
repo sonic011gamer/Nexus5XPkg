@@ -46,9 +46,9 @@
   gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize|0x00800000|UINT32|0x0000a405
 
   # SMBIOS
-  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Lumia 950 XL"|VOID*|0x0000a301
-  gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 810 Processor (8994)"|VOID*|0x0000a302
-  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"RM-1085"|VOID*|0x0000a303
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Nexus 5X"|VOID*|0x0000a301
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 808 Processor (8992)"|VOID*|0x0000a302
+  gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"LGH791"|VOID*|0x0000a303
 
   # FD
   gNexus5XPkgTokenSpaceGuid.PcdFdBaseAddress|0x00200000|UINT64|0x0000a103
