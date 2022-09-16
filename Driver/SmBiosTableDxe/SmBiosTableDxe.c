@@ -670,16 +670,6 @@ VOID CacheInfoUpdateSmbiosType7(VOID)
 }
 
 /***********************************************************************
-        SMBIOS data update  TYPE9  System Slot Information
-************************************************************************/
-VOID SysSlotInfoUpdateSmbiosType9(VOID)
-{
-  LogSmbiosData(
-      (EFI_SMBIOS_TABLE_HEADER *)&mSysSlotInfoType9, mSysSlotInfoType9Strings,
-      NULL);
-}
-
-/***********************************************************************
         SMBIOS data update  TYPE16  Physical Memory Array Information
 ************************************************************************/
 VOID PhyMemArrayInfoUpdateSmbiosType16(VOID)
