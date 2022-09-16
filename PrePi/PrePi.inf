@@ -72,7 +72,6 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize
   gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize
-  gNexus5XPkgTokenSpaceGuid.PcdBootShimInfo1
   gNexus5XPkgTokenSpaceGuid.SecondaryCpuStackSize
   gNexus5XPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase
   gNexus5XPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck

@@ -38,6 +38,3 @@
   TimerLib
   HobLib
   PcdLib
-
-[FixedPcd]
-  gNexus5XPkgTokenSpaceGuid.PcdBootShimInfo1
