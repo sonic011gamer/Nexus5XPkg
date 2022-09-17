@@ -18,7 +18,7 @@ typedef struct _I2C_DEVICE {
 
 static I2C_DEVICE gI2cDevices[] = {
     // I2C 2 (Touch)
-    {1, 0xf9924000, 96, 0x00061A80, 0x0124f800, 2, GPIO_PULL_NONE, TRUE, 3, 6,
+    {2, 0xf9924000, 96, 0x00061A80, 0x0124f800, 2, GPIO_PULL_NONE, TRUE, 3, 6,
      7},
     // Terminator
     {}};
