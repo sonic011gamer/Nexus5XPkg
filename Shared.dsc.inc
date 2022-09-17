@@ -173,10 +173,10 @@
   gQcomTokenSpaceGuid.PcdGicSpiStart|32
 
   # Device Driver Synaptics 3202
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrAddress|0x4b
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrResetPin|38
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrIntPin|77
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|1
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrAddress|0x20
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrResetPin|8
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrIntPin|22
+  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|2
 
   # RPM
   gQcomTokenSpaceGuid.PcdApcsAlias0IpcInterrupt|0xF900D008

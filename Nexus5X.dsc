@@ -51,8 +51,8 @@
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel|"LG Nexus 5X"
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 808 Processor (8992)"
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|" "
-  gNexus5XPkgTokenSpaceGuid.SynapticsXMax|1440
-  gNexus5XPkgTokenSpaceGuid.SynapticsYMax|2660
+  gNexus5XPkgTokenSpaceGuid.SynapticsXMax|1080
+  gNexus5XPkgTokenSpaceGuid.SynapticsYMax|1920
   gNexus5XPkgTokenSpaceGuid.PsciCpuSuspendAddress|0x6c03920
   
 !include Nexus5XPkg/Shared.dsc.inc
