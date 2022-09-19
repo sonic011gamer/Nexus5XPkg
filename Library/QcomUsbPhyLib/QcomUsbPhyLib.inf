@@ -16,7 +16,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   ArmPkg/ArmPkg.dec
-  Lumia950XLPkg/Lumia950XLPkg.dec
+  Nexus5XPkg/Nexus5XPkg.dec
 
 [Pcd]
   gQcomTokenSpaceGuid.PcdUsb30ScratchBase
