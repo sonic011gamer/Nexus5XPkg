@@ -50,5 +50,5 @@ You only need to run it once.
 
 ## License
 
-All code except drivers in `GPLDriver` directory are licensed under BSD 2-Clause. 
-GPL Drivers are licensed under GPLv2 license.
+All code except drivers in `GPLDriver` and DT in device-specific directories
+are licensed under BSD 2-Clause. GPL Drivers are licensed under GPLv2 license.
