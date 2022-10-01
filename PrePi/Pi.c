@@ -26,10 +26,6 @@
 #include <Library/PlatformPrePiLib.h>
 #include <Library/SerialPortLib.h>
 
-#include <Library/LKEnvLib.h>
-#include <Chipset/mdp5.h>
-#include <Platform/iomap.h>
-
 VOID EFIAPI ProcessLibraryConstructorList(VOID);
 
 VOID PrePiMain(IN VOID *StackBase, IN UINTN StackSize)

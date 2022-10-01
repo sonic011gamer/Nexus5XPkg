@@ -13,6 +13,10 @@
 #include <Library/ArmSmcLib.h>
 #include <Library/PlatformPrePiLib.h>
 
+#include <Library/LKEnvLib.h>
+#include <Chipset/mdp5.h>
+#include <Platform/iomap.h>
+
 #include "PlatformUtils.h"
 #include <Configuration/DeviceMemoryMap.h>
 
