@@ -51,6 +51,9 @@ steps:
 - script: ./Tools/CI/Builder/Build.sh
   displayName: 'UEFI build'
 
+- script: chmod +x ./build_boot_images.sh && ./build_boot_images.sh
+  displayName: 'UEFI boot images build'
+
 # Publish UEFI (2 targets)
 - task: PublishBuildArtifacts@1
   displayName: 'Publish UEFI build (Nexus 5X rev 1.0)'
