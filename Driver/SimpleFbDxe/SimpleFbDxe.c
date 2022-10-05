@@ -2,8 +2,6 @@
 #include <PiDxe.h>
 #include <Uefi.h>
 
-#include <Chipset/mdp5.h>
-
 #include <Library/ArmLib.h>
 #include <Library/BaseLib.h>
 #include <Library/BaseMemoryLib.h>
@@ -19,8 +17,6 @@
 #include <Library/UefiLib.h>
 
 #include <Protocol/GraphicsOutput.h>
-
-#include <Platform/iomap.h>
 
 /// Defines
 /*
@@ -137,15 +133,6 @@ DisplaySetMode(IN EFI_GRAPHICS_OUTPUT_PROTOCOL *This, IN UINT32 ModeNumber)
 }
 
 STATIC
-VOID
-DisplayRefresh(VOID)
-{
-  MmioWrite32(MDP_CTL_0_BASE + CTL_START, 1);
-  ArmDataSynchronizationBarrier(); 
-  MicroSecondDelay( 32000 );
-};
-
-STATIC
 EFI_STATUS
 EFIAPI
 DisplayBlt(
@@ -167,8 +154,6 @@ DisplayBlt(
   Status = FrameBufferBlt(
       mFrameBufferBltLibConfigure, BltBuffer, BltOperation, SourceX, SourceY,
       DestinationX, DestinationY, Width, Height, Delta);
-  
-  DisplayRefresh();
 
   gBS->RestoreTPL(Tpl);
 
