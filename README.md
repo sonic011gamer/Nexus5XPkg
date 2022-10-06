@@ -23,11 +23,11 @@ Windows Boot Manager boots fine, however booting Windows is unsupported as of no
 
 ## Linux notes
 
-Booting linux is still untested as of now, but should work (and it should be possible to get framebuffer working on mainline linux by chainloading it from uefi)
+Mainline linux boots with framebuffer working, but kernel panics. Cause is not identified yet.
 
 ## Framebuffer notes
 
-Nexus 5X uses a command-mode panel, so a function to refresh the framebuffer had to be implemented.
+The bootloader on Nexus 5X disables refresh, so a function to enable it again had to be implemented
 
 ## WSL Build Notes
 
