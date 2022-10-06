@@ -5,6 +5,7 @@ trigger:
     include:
     - master
     - experimental
+    - experimental-psci
   paths:
     exclude:
     - README.md
