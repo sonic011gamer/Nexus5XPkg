@@ -75,7 +75,6 @@
 
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
-  gNexus5XPkgTokenSpaceGuid.PcdBootSplashAppFile
 
 [Guids]
   gEfiFileInfoGuid
@@ -84,7 +83,6 @@
   gEfiEndOfDxeEventGroupGuid
   gEfiTtyTermGuid
   gUefiShellFileGuid
-  gLumiaBootSplashAppGuid
 
 [Protocols]
   gEfiDevicePathProtocolGuid
