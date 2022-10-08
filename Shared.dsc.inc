@@ -45,21 +45,19 @@
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdPciBusHotplugDeviceSupport|FALSE
 
-  gNexus5XPkgTokenSpaceGuid.PcdIsLkBuild|FALSE
-
   gQcomTokenSpaceGuid.PcdMmcHs200Caps|FALSE
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x00000000         # Starting address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x00C40000
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|18
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|19
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0xf9000000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xf9002000
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0xf200000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xf300000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"LumiaWoA authors"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.24"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Under the bed blue mass"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"0.01"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x00024001
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"LMNL  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
@@ -100,62 +98,13 @@
   gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesData|800
   gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderCode|10
   gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderData|0
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x00C00000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf9000000
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|16
 
-  # SoC Drivers GPIO TLMM
-  gQcomTokenSpaceGuid.PcdGpioTlmmBaseAddress|0xFD510000
-  gQcomTokenSpaceGuid.PcdGpioTlmmSummaryIrq|240
-  gQcomTokenSpaceGuid.PcdGpioTlmmIoOffset|0x1004
-  gQcomTokenSpaceGuid.PcdGpioTlmmIoElementSize|0x10
-  gQcomTokenSpaceGuid.PcdGpioTlmmCtlOffset|0x1000
-  gQcomTokenSpaceGuid.PcdGpioTlmmCtlElementSize|0x10
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrCfgOffset|0x1008
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrCfgElementSize|0x10
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrStatusOffset|0x100c
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrStatusElementSize|0x10
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrTargetOffset|0x1008
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrTargetElementSize|0x10
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrEnableBit|0
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrStatusBit|0
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrAckHigh|FALSE
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrTargetBit|5
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrTargetKpssValue|4
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrRawStatusBit|4
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrPolarityBit|1
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrDetectionBit|2
-  gQcomTokenSpaceGuid.PcdGpioTlmmIntrDetectionWidth|2
-  gQcomTokenSpaceGuid.PcdGpioTlmmInBit|0
-  gQcomTokenSpaceGuid.PcdGpioTlmmOutBit|1
-  gQcomTokenSpaceGuid.PcdGpioTlmmOeBit|9
-  gQcomTokenSpaceGuid.PcdGpioTlmmMuxBit|2
-  gQcomTokenSpaceGuid.PcdGpioTlmmDrvBit|6
-  gQcomTokenSpaceGuid.PcdGpioTlmmPullBit|0
-  gQcomTokenSpaceGuid.PcdGpioTlmmNumFunctions|12
-
-  # SoC Drivers SPMI
-  gQcomTokenSpaceGuid.PcdSpmiBaseAddress|0xFC4C0000
-
-  # SoC Drivers MMC
-  gQcomTokenSpaceGuid.PcdSdccMciHcMode|0x00000078
-  gQcomTokenSpaceGuid.PcdSdccHcPwrctlStatusReg|0x000000DC
-  gQcomTokenSpaceGuid.PcdSdccHcPwrctlMaskReg|0x000000E0
-  gQcomTokenSpaceGuid.PcdSdccHcPwrctlClearReg|0x000000E4
-  gQcomTokenSpaceGuid.PcdSdccHcPwrctlCtlReg|0x000000E8
-  gQcomTokenSpaceGuid.PcdMmcSdhciDdrCfgVal|0x80040870 # DDR_CFG_DLY_VAL
-  gQcomTokenSpaceGuid.PcdMmcSdc1HdrvPullCtlOffset|0x00002044
-  gQcomTokenSpaceGuid.PcdMmcSdc2HdrvPullCtlOffset|0x00002048
-
-  # SoC Drivers Misc
-  gQcomTokenSpaceGuid.PcdGicSpiStart|32
-
-  # SoC Drivers UARTDM
-  gQcomTokenSpaceGuid.PcdUartDmClkRxTxBitRate|0xCC
-
-  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x7800000      
-  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x20000000  # Start here
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x02800000      
+  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x13F00000   # Start here
 
   ## Default Terminal Type
   ## 0-PCANSI, 1-VT100, 2-VT00+, 3-UTF8, 4-TTYTERM
@@ -169,69 +118,9 @@
   # Enable Debug
   gNexus5XPkgTokenSpaceGuid.PcdEnableScreenSerial|TRUE
 
-  # SoC Drivers I2C
-  gQcomTokenSpaceGuid.PcdGicSpiStart|32
-
-  # Device Driver Synaptics 3202
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrAddress|0x20
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrResetPin|8
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrIntPin|22
-  gNexus5XPkgTokenSpaceGuid.SynapticsCtlrI2cDevice|2
-
-  # RPM
-  gQcomTokenSpaceGuid.PcdApcsAlias0IpcInterrupt|0xF900D008
-  gQcomTokenSpaceGuid.PcdSmdIrq|200
-
-  # SMEM
-  gQcomTokenSpaceGuid.PcdMsmSharedBase|0x06A00000
-  gQcomTokenSpaceGuid.PcdMsmSharedSize|0x00200000
-
-  # USB
-  gQcomTokenSpaceGuid.PcdUsb30Ee1Irq|163
-  gQcomTokenSpaceGuid.PcdUsb30Base|0xF9200000
-  gQcomTokenSpaceGuid.PcdUsb30ScratchBase|0xF92F8800
-  gQcomTokenSpaceGuid.PcdUsb30QmpPhyBase|0xF9B38000
-  gQcomTokenSpaceGuid.PcdUsb2PhyBase|0xF9B39000
-  gQcomTokenSpaceGuid.PcdUsb2PhyPortPowerDownOffset|0x000000B4
-  gQcomTokenSpaceGuid.PcdUsb2PhyPortUtmiCtrl2Offset|0x000000C4
-  gQcomTokenSpaceGuid.PcdUsb2PhyPortTune1Offset|0x00000080
-  gQcomTokenSpaceGuid.PcdUsb2PhyPortTune2Offset|0x00000084
-  gQcomTokenSpaceGuid.PcdUsb2PhyPortTune3Offset|0x00000088
-  gQcomTokenSpaceGuid.PcdUsb2PhyPortTune4Offset|0x0000008C
-  gQcomTokenSpaceGuid.PcdUsb2GccPhyBcr|0xFC4004B8
-
   # Fastboot
   gEmbeddedTokenSpaceGuid.PcdAndroidFastbootUsbVendorId|0x18d1
   gEmbeddedTokenSpaceGuid.PcdAndroidFastbootUsbProductId|0xd00d
-
-  # Variable Services
-  # Each Size of 0xA0000
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableBase|0x80000000
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize|0x000A0000
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareBase|0x800A0000
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize|0x000A0000
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingBase|0x80140000 
-  # gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize|0x000A0000
-  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVolatileStorageBase|0x801E0000
-
-  # eMMC should have block size of 512 bytes. (Assert)
-  # Allocate 640KB (less than provisioned) so 500 blocks
-  # And times 3 for other regions
-  # And it starts at the beginning of the logical partition of "uefi_vars"
-  # Synchronize the change in LK when the size changes
-  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVariableBlockCount|3840
-  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVariableBlockSize|512
-  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageVariableBlockLba|0
-  # gNexus5XPkgTokenSpaceGuid.PcdNvStorageScratchAddress|0x90000000
-
-  # Timer
-  gQcomTokenSpaceGuid.PcdIntDebugTimerExp|41
-  gQcomTokenSpaceGuid.PcdQTimerBase|0xF9021000
-
-  # Parking
-  gNexus5XPkgTokenSpaceGuid.SecondaryCpuStackSize|0x2000
-  gNexus5XPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000
-  gNexus5XPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|TRUE
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxAuthVariableSize|0x2800
@@ -240,9 +129,9 @@
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1920
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|1920
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|160
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|120
 
@@ -571,29 +460,7 @@
 	  RealTimeClockLib|Nexus5XPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
   }
 
-  # SoC Drivers (Cross-referenced from EFIDroid)
-  Nexus5XPkg/Driver/BamDxe/BamDxe.inf
-  Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmDxe.inf
-  Nexus5XPkg/GPLDriver/GpioTlmmInterruptDxe/GpioTlmmInterruptDxe.inf
-  Nexus5XPkg/Driver/SpmiDxe/SpmiDxe.inf
-  Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41Dxe.inf
-  Nexus5XPkg/Driver/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
-  Nexus5XPkg/Driver/KeypadDxe/KeypadDxe.inf
-  Nexus5XPkg/Driver/ClockDxe/ClockDxe.inf
-  Nexus5XPkg/Driver/SdhciMMCHSDxe/SdhciMMCHS.inf
-  Nexus5XPkg/Driver/I2cQupDxe/I2cQupDxe.inf
-  Nexus5XPkg/Driver/SmemDxe/SmemDxe.inf
-  Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableDxe.inf
-  Nexus5XPkg/Driver/SmdRpmDxe/RpmDxe.inf
-  Nexus5XPkg/Driver/UsbDxe/UsbDxe.inf
-  Nexus5XPkg/Driver/SsbiDxe/SsbiDxe.inf
-  Nexus5XPkg/Driver/BoardDxe/BoardDxe.inf
-  Nexus5XPkg/Driver/RuntimeMemoryConfigDxe/RuntimeMemoryConfigDxe.inf
-  Nexus5XPkg/Driver/TimerDxe/TimerDxe.inf
-
-  # Device Drivers
-  Nexus5XPkg/Driver/SynapticsTouchDxe/SynapticsTouchDevice.inf
-  Nexus5XPkg/Driver/SynapticsTouchDxe/SynapticsTouchDxe.inf
+  ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   # Debug heartbeat
 !if $(SEND_HEARTBEAT_TO_SERIAL) == 1
@@ -643,14 +510,7 @@
   MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  Nexus5XPkg/Application/BdsMenuApp/BdsMenuApp.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf
-      NULL|MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf
-      NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
-  }
   Nexus5XPkg/Driver/LogoDxe/LogoDxe.inf
-  Nexus5XPkg/Application/BootSplashApp/BootSplashApp.inf
 
   # Disk IO
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf

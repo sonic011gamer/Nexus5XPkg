@@ -12,15 +12,8 @@
 #include <IndustryStandard/ArmStdSmc.h>
 #include <Library/ArmSmcLib.h>
 #include <Library/PlatformPrePiLib.h>
-
-#include <Library/LKEnvLib.h>
-
 #include "PlatformUtils.h"
 #include <Configuration/DeviceMemoryMap.h>
-
-#include <Chipset/mdp5.h>
-
-#include <Platform/iomap.h>
 
 EFI_STATUS
 EFIAPI
@@ -69,42 +62,13 @@ STATIC VOID UartInit(VOID)
   SerialPortInitialize();
   InitializeSharedUartBuffers();
 
-  DEBUG((EFI_D_INFO, "\nTianoCore on Nexus 5X (AArch64)\n"));
+  DEBUG((EFI_D_INFO, "\nTianoCore on Redmi Note 11 (AArch64)\n"));
   DEBUG(
       (EFI_D_INFO, "Firmware version %s built %a %a\n\n",
        (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), __TIME__, __DATE__));
 }
 
-VOID CheckMdpConfig(VOID)
-{
-  UINT32 Base = 0xfd915000;
-
-  /* Windows requires a BGRA FB */
-  DEBUG((EFI_D_INFO, "\nChanging FB format\n"));
-  writel(0x000236FF, Base + PIPE_SSPP_SRC_FORMAT);
-  writel(0x03020001, Base + PIPE_SSPP_SRC_UNPACK_PATTERN);
-
-  DEBUG((EFI_D_INFO, "\nChanging FB stride\n"));
-  writel(1080*4, Base + PIPE_SSPP_SRC_YSTRIDE);
-  writel(BIT(3), MDP_CTL_0_BASE + CTL_FLUSH);
-}
-
-STATIC
-VOID
-DisplayEnableRefresh(VOID)
-{
-  writel((BIT(31) | AUTOREFRESH_FRAMENUM), MDP_REG_PP_0_AUTOREFRESH_CONFIG);
-  dsb();
-};
-
 VOID PlatformInitialize()
 {
   UartInit();
-
-  //Change the config for Windows
-  CheckMdpConfig();
-
-  /* Display refresh gets disabled by the stock bootloader.
-  Enable it so that we'll get a proper framebuffer */
-  DisplayEnableRefresh();
 }

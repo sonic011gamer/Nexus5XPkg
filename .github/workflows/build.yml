@@ -1,0 +1,43 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Update APT sources
+      run: sudo apt update
+    
+    - name: Install VSTS dependencies
+      run: sudo apt install uuid-dev flex bison gcc-aarch64-linux-gnu
+    
+    - name: Fix directory links
+      run: sudo ln -sfn $(pwd) ../Nexus5XPkg
+      
+    - name: Prepare pre-build environment, phase 0
+      run: sudo ./Tools/CI/Bootstrapper/Stage0.sh
+
+    - name: Prepare pre-build environment, phase 1
+      run: ./Tools/CI/Bootstrapper/Stage1.sh
+
+    - name: Build BootShim
+      run: chmod +x ./Tools/CI/Builder/build_boot_shim.sh && ./Tools/CI/Builder/build_boot_shim.sh
+
+    - name: UEFI build
+      run: ./Tools/CI/Builder/Build.sh
+
+    - name: UEFI boot image build
+      run: chmod +x ./build_boot_images.sh && ./build_boot_images.sh
+
+    - uses: actions/upload-artifact@v3
+      with:
+       name: SM6225 UEFI (Redmi Note 11)
+       path: ../edk2/Build/Nexus5X-AARCH64/DEBUG_GCC5/FV/uefi.img

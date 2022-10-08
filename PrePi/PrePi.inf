@@ -7,7 +7,6 @@
 
 [Sources.common]
   Pi.c
-  EarlyQGic/EarlyQGic.c
 
 [Sources.AARCH64]
   ReleaseInfo.S | GCC
@@ -73,12 +72,5 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize
   gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize
-  gNexus5XPkgTokenSpaceGuid.SecondaryCpuStackSize
-  gNexus5XPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase
-  gNexus5XPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck
-  gNexus5XPkgTokenSpaceGuid.PsciCpuSuspendAddress
   gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferAddress
   gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize
-
-[FeaturePcd]
-  gNexus5XPkgTokenSpaceGuid.PcdIsLkBuild

@@ -3,7 +3,7 @@
 
 #include <Library/ArmLib.h>
 
-#define MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT 64
+#define MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT 128
 
 /* Below flag is used for system memory */
 #define SYSTEM_MEMORY_RESOURCE_ATTR_CAPABILITIES                               \
@@ -16,7 +16,7 @@
 
 typedef enum { NoHob, AddMem, AddDev, HobOnlyNoCacheSetting, MaxMem } DeviceMemoryAddHob;
 
-#define MEMORY_REGION_NAME_MAX_LENGTH 64
+#define MEMORY_REGION_NAME_MAX_LENGTH 32
 
 typedef struct {
   CHAR8                        Name[MEMORY_REGION_NAME_MAX_LENGTH];
@@ -41,14 +41,13 @@ typedef struct {
 #define Reserv EfiReservedMemoryType
 #define Conv EfiConventionalMemory
 #define BsData EfiBootServicesData
-#define RtData EfiRuntimeServicesData
-#define LdData EfiLoaderData
-#define MmIO EfiMemoryMappedIO
-#define MaxMem EfiMaxMemoryType
 #define BsCode EfiBootServicesCode
+#define RtData EfiRuntimeServicesData
 #define RtCode EfiRuntimeServicesCode
+#define MmIO EfiMemoryMappedIO
 
 #define NS_DEVICE ARM_MEMORY_REGION_ATTRIBUTE_NONSECURE_DEVICE
+#define DEVICE ARM_MEMORY_REGION_ATTRIBUTE_NONSECURE_DEVICE
 #define WRITE_THROUGH ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 #define WRITE_THROUGH_XN ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 #define WRITE_BACK ARM_MEMORY_REGION_ATTRIBUTE_WRITE_BACK
@@ -57,78 +56,78 @@ typedef struct {
 #define UNCACHED_UNBUFFERED_XN ARM_MEMORY_REGION_ATTRIBUTE_UNCACHED_UNBUFFERED
 
 static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
-    /* Name               Address     Length      HobOption        ResourceAttribute    ArmAttributes
-                                                          ResourceType          MemoryType */
+/*                                                    EFI_RESOURCE_ EFI_RESOURCE_ATTRIBUTE_ EFI_MEMORY_TYPE ARM_REGION_ATTRIBUTE_
+/*   MemLabel(32 Char.),  MemBase,    MemSize, BuildHob, ResourceType, ResourceAttribute, MemoryType, CacheAttributes
+/*--------------------- DDR --------------------- */
+    { "Kernel",           0x40000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+    { "HYP",              0x45700000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+    { "Boot Info",        0x45D00000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+    { "AOP CMD DB",       0x85F00000, 0x00040000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+    { "SMEM",             0x46000000, 0x00200000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+    { "PIL Reserved",     0x4AB00000, 0x0A400000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+    { "DXE Heap",         0x53F00000, 0x02800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK},
+    { "DBI Dump",         0x56700000, 0x00A00000, NoHob , MMAP_IO, INITIALIZED, Conv, UNCACHED_UNBUFFERED_XN},
+    { "Sched Heap",       0x57100000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+    { "Display Reserved", 0x5C000000, 0x01000000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
+    { "LAST LOG",         0x5D000000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+    { "FV Region",        0x5F800000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+    { "ABOOT FV",         0x5FA00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
+    { "UEFI FD",          0x5FC00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+    { "SEC Heap",         0x5FF00000, 0x0008C000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+    { "CPU Vectors",      0x5FF8C000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+    { "MMU PageTables",   0x5FF8D000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+    { "UEFI Stack",       0x5FF90000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+    { "Log Buffer",       0x5FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
+    { "Info Blk",         0x5FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN}, 
 
-    /* DDR Regions */
-    {"DBI Dump",          0x00010000, 0x00014000, NoHob,  MMAP_IO, INITIALIZED,  Conv,   NS_DEVICE},
-    {"DDR Health Mon",    0x00024000, 0x00002000, NoHob,  MMAP_IO, INITIALIZED,  Reserv, NS_DEVICE},
-    {"HLOS 0",            0x00100000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
-    {"UEFI FD",           0x00200000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsCode, WRITE_BACK},
-    {"MPPark Code",       0x00300000, 0x00080000, AddMem, MEM_RES, UNCACHEABLE,  RtCode, UNCACHED_UNBUFFERED},
-    {"FBPT Payload",      0x00380000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED},
-    {"DBG2",              0x00381000, 0x00004000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED},
-    {"Capsule Header",    0x00385000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED},
-    {"TPM Control Area",  0x00386000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED},
-    {"UEFI Info Block",   0x00389000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED},
-    {"Reset Data",        0x0038A000, 0x00004000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED},
-    {"Reser. Uncached0",  0x0038E000, 0x00002000, AddMem, SYS_MEM, SYS_MEM_CAP,  RtData, UNCACHED_UNBUFFERED}, /* It's tricky tricky tricky */
-    {"Reser. Uncached0",  0x00390000, 0x00070000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsData, UNCACHED_UNBUFFERED}, /* There goes the other part */
-    {"UEFI Stack",        0x00C00000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsData, WRITE_BACK},
-    {"CPU Vectors",       0x00C40000, 0x00010000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsCode, WRITE_BACK},
-    {"Reser. Cached 0",   0x00C50000, 0x000B0000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsData, WRITE_BACK},
-    {"HLOS 1",            0x00D00000, 0x02700000, AddMem, SYS_MEM, SYS_MEM_CAP,  BsData, WRITE_BACK},
-    {"Display Reserved",  0x03400000, 0x00c00000, AddMem, MEM_RES, WRITE_THROUGH, MaxMem, WRITE_THROUGH},
-    {"HLOS 2",            0x04000000, 0x01000000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
-    /* Memory hole :      0x05000000, 0x02200000   34MiB */
-    {"TZ Apps",           0x06500000, 0x00500000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-    {"SMEM",              0x06A00000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE,  Reserv, UNCACHED_UNBUFFERED},
-    {"Hypervisor",        0x06C00000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-    {"TZ",                0x06D00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-    {"MPSS_EFS / SBL",    0x06F00000, 0x00180000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-    {"ADSP_EFS",          0x07080000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-    {"HLOS 3",            0x070A0000, 0x00360000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
-    {"Subsys Reser. 1",   0x07400000, 0x07B00000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-    {"CNSS_DEBUG",        0x0EF00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP,  Reserv, NS_DEVICE},
-#if USE_MEMORY_FOR_SERIAL_OUTPUT == 1
-    {"PStore",            0x0F200000, 0x00800000, AddMem, MEM_RES, WRITE_THROUGH, MaxMem, WRITE_THROUGH},
-    {"HLOS 4",            0x0FA00000, 0x10600000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
-#else
-    {"HLOS 4",            0x0F200000, 0x10E00000, AddMem, SYS_MEM, SYS_MEM_CAP,  Conv,   WRITE_BACK},
-#endif
+/* RAM partition regions
+/* Memory hole
+/* 0x60000000 - 0x98FFFFFF */
+    { "RAM Partition",    0x99000000, 0x67000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 
-    /* RAM partition regions */
-    {"RAM Partition",     0x20000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-    {"RAM Partition",     0x60000000, 0x20000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+//--------------------- Other ---------------------
+    { "RPM_SS_MSG_RAM",   0x045F0000, 0x00007000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
+    { "IMEM Base",        0x0C100000, 0x00026000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
+    { "IMEM Cookie Base", 0x0C125000, 0x00001000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
 
-    /* Other memory regions */
-    {"IMEM SMEM Base",    0xFE805000, 0x00001000, NoHob,  MMAP_IO, INITIALIZED,  Conv,   NS_DEVICE},
-    {"IMEM Cookie Base",  0xFE80F000, 0x00001000, AddDev, MMAP_IO, INITIALIZED,  Conv,   NS_DEVICE},
 
-    /* Register regions */
-    {"TERMINATOR",        0xF9000000, 0x00113000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"GCC CLK CTL",       0xFC400000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"RPM MSG RAM",       0xFC428000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"MMSS",              0xFD800000, 0x001DC000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"MPM2 MPM",          0xFC4A0000, 0x0000C000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"PMIC ARB SPMI",     0xFC4C0000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"CRYPTO0 CRYPTO",    0xFD404000, 0x0001C000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"CRYPTO1 CRYPTO",    0xFD444000, 0x0001C000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"CRYPTO2 CRYPTO",    0xFD3C4000, 0x0001C000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"Security Ctrl",     0xFC4B8000, 0x00007000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"SS SDC1/2/3/4",     0xF9800000, 0x000E7000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"SS BLSP1/2",        0xF9900000, 0x00069000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"SS USBOTG",         0xF9A40000, 0x00016000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"SS USB3PHY",        0xF9B38000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"USB30 PRIM",        0xF9200000, 0x0010D000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"PERIPH_SS_PRNG",    0xF9BFF000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"TLMM CSR",          0xFD510000, 0x00004000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"TCSR TCSR MUTEX",   0xFD484000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"TCSR TCSR REGS",    0xFD4A0000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"PCIE WRAPPER AXI",  0xFF000000, 0x00800000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
-    {"PCIE WRAPPER AHB",  0xFC520000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE,  MmIO,   NS_DEVICE},
+//--------------------- Register ---------------------
+    { "TCSR_TCSR_REGS",   0x003C0000, 0x00040000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "TLMM_WEST",        0x00500000, 0x00300000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "TLMM_SOUTH",       0x00900000, 0x00300000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "TLMM_EAST",        0x00D00000, 0x00300000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "GCC_CLK_CTL",      0x01400000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "PMIC ARB SPMI",    0x01C00000, 0x02800000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "MMCX_CPR3",        0x01648000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "CRYPTO0 CRYPTO",   0x01B00000, 0x00040000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "SECURITY CONTROL", 0x01B40000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "PRNG_CFG_PRNG",    0x01B50000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "SLP_CNTR",         0x04403000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "TSENS0",           0x04410000 ,0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "TSENS0_TM",        0x04411000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "PSHOLD",           0x0440B000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "QUPV3_0_GSI",      0x04A00000, 0x000D0000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "QUPV3_1_GSI",      0x04C00000, 0x000D0000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "UFS UFS REGS",     0x04800000, 0x00020000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "PERIPH_SS",        0x04700000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "USB30_PRIM",       0x04E00000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "GPU_GMU_CX_BLK",   0x0597D000, 0x0000C000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "GPU_CC",           0x05990000, 0x00009000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "VIDEO_CC",         0x05B00000, 0x00020000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "MDSS",             0x05E00000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "DISP_CC",          0x05F00000, 0x00020000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "SMMU",             0x0C600000, 0x00080000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "APSS_WDT_TMR1",    0x0F017000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "QTIMER",           0x0F020000, 0x00110000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "APCS_ALIAS0_GLB",  0x0F111000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "APSS_GIC500_GICD", 0x0F200000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "APSS_GIC500_GICR", 0x17A60000, 0x00100000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "OSM_RAIL",         0x0F520000, 0x00020000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "APSS_ACTPM_WRAP",  0x0F500000, 0x000B0000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "USB2",             0x01610000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
+    { "MCCC_MCCC_MSTR",   0x0447D000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
 
     /* Terminator for MMU */
-    {"Terminator", 0, 0, 0, 0, 0, 0, 0}};
+    { "Terminator", 0, 0, 0, 0, 0, 0, 0}};
 
 #endif

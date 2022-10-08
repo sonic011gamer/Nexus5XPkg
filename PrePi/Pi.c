@@ -80,16 +80,6 @@ VOID PrePiMain(IN VOID *StackBase, IN UINTN StackSize)
 
   DEBUG((EFI_D_LOAD | EFI_D_INFO, "MMU configured from device config\n"));
 
-  // Initialize GIC
-  if (!FixedPcdGetBool(PcdIsLkBuild)) {
-    Status = QGicPeim();
-
-    if (EFI_ERROR(Status)) {
-      DEBUG((EFI_D_ERROR, "Failed to configure GIC\n"));
-      CpuDeadLoop();
-    }
-  }
-
   // Add HOBs
   BuildStackHob((UINTN)StackBase, StackSize);
 
