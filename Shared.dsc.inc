@@ -45,8 +45,6 @@
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdPciBusHotplugDeviceSupport|FALSE
 
-  gQcomTokenSpaceGuid.PcdMmcHs200Caps|FALSE
-
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
