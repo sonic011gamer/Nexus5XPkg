@@ -241,48 +241,11 @@
   PlatformPeiLib|Nexus5XPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformBootManagerLib|Nexus5XPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
 
-  # SoC Drivers
-  InterruptsLib|Nexus5XPkg/Library/InterruptsLib/InterruptsLib.inf
-  MallocLib|Nexus5XPkg/Library/MallocLib/MallocLib.inf
-  KeypadDeviceHelperLib|Nexus5XPkg/Library/KeypadDeviceHelperLib/KeypadDeviceHelperLib.inf
-  KeypadDeviceImplLib|Nexus5XPkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
-  DloadUtilLib|Nexus5XPkg/Library/DloadUtilLib/DloadUtilLib.inf
-  QcomPlatformClockInitLib|Nexus5XPkg/Library/QcomPlatformClockInitLib/QcomPlatformClockInitLib.inf
-  QcomPlatformMmcLib|Nexus5XPkg/Library/PlatformMmcLib/QcomPlatformMmcLib.inf
-  QcomPlatformMmcClockOverrideLib|Nexus5XPkg/Library/QcomPlatformMmcClockOverrideLib/QcomPlatformMmcClockOverrideLib.inf
-  QcomTargetMmcSdhciLib|Nexus5XPkg/Library/TargetMmcSdhciLib/QcomTargetMmcSdhciLib.inf
-  LcmLib|Nexus5XPkg/Library/LcmLib/LcmLib.inf
-  MicroLibC|Nexus5XPkg/Library/MicroLibC/MicroLibC.inf
-  StrLib|Nexus5XPkg/Library/StrLib/StrLib.inf
-  QcomPlatformI2cQupLib|Nexus5XPkg/Library/StaticQcomPlatformI2cQupLib/StaticQcomPlatformI2cQupLib.inf
-  QcomPlatformUsbLib|Nexus5XPkg/Library/QcomPlatformUsbLib/QcomPlatformUsbLib.inf
-  QcomUsbPhyLib|Nexus5XPkg/Library/QcomUsbPhyLib/QcomUsbPhyLib.inf
-  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
-  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
-  QTimerLib|Nexus5XPkg/Library/QTimerLib/QTimerLib.inf
 
-  # RTC Private
-  Pm8x41LibRtcPrivate|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
+
 
   # System Reset
   ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
-  EfiResetSystemLib|Nexus5XPkg/Library/QcomPmicResetSystemLib/QcomPmicResetSystemLib.inf
-  RuntimeSpmiLib|Nexus5XPkg/Library/RuntimeSpmiLib/RuntimeSpmiLib.inf
-  RuntimeSpmiMemoryConfiguratorLib|Nexus5XPkg/Library/RuntimeSpmiMemoryConfiguratorLib/RuntimeSpmiMemoryConfiguratorLib.inf
-
-  # PCI Express Dependencies
-  QcomPlatformClock2Lib|Nexus5XPkg/Library/QcomPlatformClock2Lib/QcomPlatformClock2Lib.inf
-
-  # UI Llbrary and apps
-  LittleVglLib|Nexus5XPkg/Library/LittleVglLib/LittleVglLib.inf
-  LodePngLib|Nexus5XPkg/Library/LodePngLib/LodePngLib.inf
 
 [LibraryClasses.common.SEC]
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
@@ -290,19 +253,6 @@
   PrePiMemoryAllocationLib|EmbeddedPkg/Library/PrePiMemoryAllocationLib/PrePiMemoryAllocationLib.inf
   PrePiHobListPointerLib|ArmPlatformPkg/Library/PrePiHobListPointerLib/PrePiHobListPointerLib.inf
   PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
-  # SoC Drivers
-  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmImplLib.inf
-  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockImplLib.inf
-  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
 
 [LibraryClasses.common.DXE_CORE]
   HobLib|MdePkg/Library/DxeCoreHobLib/DxeCoreHobLib.inf
@@ -322,22 +272,6 @@
   UefiHiiServicesLib|MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib.inf
   ExtractGuidedSectionLib|MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf
 
-  # SoC Drivers
-  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
-  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockLib.inf
-  I2cQupLib|Nexus5XPkg/Driver/I2cQupDxe/I2cQupLib.inf
-  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
-  QcomDxeTimerLib|Nexus5XPkg/Library/QTimerLib/QcomQTimerDxeTimerLib.inf
-
 !if $(SECURE_BOOT_ENABLE) == TRUE
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
 !endif
@@ -351,19 +285,6 @@
   FileHandleLib|MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   ExtractGuidedSectionLib|MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf
-  # SoC Drivers
-  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
-  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockLib.inf
-  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
@@ -377,19 +298,7 @@
   MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
   UefiScsiLib|MdePkg/Library/UefiScsiLib/UefiScsiLib.inf
   ExtractGuidedSectionLib|MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf
-  # SoC Drivers
-  GpioTlmmLib|Nexus5XPkg/GPLDriver/GpioTlmmDxe/GpioTlmmLib.inf
-  SpmiLib|Nexus5XPkg/Driver/SpmiDxe/SpmiImplLib.inf
-  Pm8x41Lib|Nexus5XPkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
-  ClockLib|Nexus5XPkg/Driver/ClockDxe/ClockLib.inf
-  SmemLib|Nexus5XPkg/Driver/SmemDxe/SmemImplLib.inf
-  SmemPtableLib|Nexus5XPkg/Driver/SmemPtableDxe/SmemPtableImplLib.inf
-  PTableLib|Nexus5XPkg/Library/PTableLib/PTableLib.inf
-  RpmLib|Nexus5XPkg/Driver/SmdRpmDxe/RpmLib.inf
-  SsbiLib|Nexus5XPkg/Driver/SsbiDxe/SsbiImplLib.inf
-  BoardLib|Nexus5XPkg/Driver/BoardDxe/BoardImplLib.inf
-  QcomTargetBoardLib|Nexus5XPkg/Library/QcomTargetBoardLib/QcomTargetBoardLib.inf
-  PlatformIdLib|Nexus5XPkg/Library/PlatformIdLib/PlatformIdLib.inf
+
 
 !if $(SECURE_BOOT_ENABLE) == TRUE
   BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
@@ -405,7 +314,6 @@
 
   # System Reset
   ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
-  EfiResetSystemLib|Nexus5XPkg/Library/QcomPmicResetSystemLib/QcomPmicResetSystemLib.inf
 
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
