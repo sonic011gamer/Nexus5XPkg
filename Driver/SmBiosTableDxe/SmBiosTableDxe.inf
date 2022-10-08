@@ -36,16 +36,12 @@
   BaseMemoryLib
   DebugLib
   CompilerIntrinsicsLib
-
-[Guids.common]
-  gQcomTokenSpaceGuid
   
 [Protocols]
   gEfiSmbiosProtocolGuid
-  gQcomBoardProtocolGuid
   
 [Depex]
-  gEfiSmbiosProtocolGuid AND gQcomBoardProtocolGuid
+  gEfiSmbiosProtocolGuid
 
 [BuildOptions.AARCH64]
   GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error
