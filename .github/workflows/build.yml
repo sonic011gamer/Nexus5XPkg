@@ -40,4 +40,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
        name: SM6225 UEFI (Redmi Note 11)
-       path: ../edk2/Build/Nexus5X-AARCH64/DEBUG_GCC5/FV/uefi.img
+       path: uefi.img
