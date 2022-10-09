@@ -31,7 +31,7 @@
   FLASH_DEFINITION               = Nexus5XPkg/Nexus5X.fdf
 
   DEFINE SECURE_BOOT_ENABLE           = TRUE
-  DEFINE USE_MEMORY_FOR_SERIAL_OUTPUT = 1
+  DEFINE USE_MEMORY_FOR_SERIAL_OUTPUT = 0
   DEFINE USE_SCREEN_FOR_SERIAL_OUTPUT = 1
   DEFINE MEMORY_4GB                   = 1
 
@@ -52,6 +52,6 @@
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 680 Processor (6225)"
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|" "
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x02800000      
-  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x59000000   # Start here
+  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x13F00000   # Start here
   
 !include Nexus5XPkg/Shared.dsc.inc

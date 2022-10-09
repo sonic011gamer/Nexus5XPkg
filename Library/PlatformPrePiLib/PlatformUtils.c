@@ -24,7 +24,7 @@ SerialPortLocateArea(PARM_MEMORY_REGION_DESCRIPTOR_EX* MemoryDescriptor)
 
   // Run through each memory descriptor
   while (MemoryDescriptorEx->Length != 0) {
-    if (AsciiStriCmp("PStore", MemoryDescriptorEx->Name) == 0) {
+    if (AsciiStriCmp("LAST_LOG", MemoryDescriptorEx->Name) == 0) {
       *MemoryDescriptor = MemoryDescriptorEx;
       return EFI_SUCCESS;
     }
