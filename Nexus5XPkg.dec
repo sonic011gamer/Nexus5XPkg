@@ -122,7 +122,7 @@
 
   # FD
   gNexus5XPkgTokenSpaceGuid.PcdFdBaseAddress|0x5FC00000|UINT64|0x0000a103
-  gNexus5XPkgTokenSpaceGuid.PcdFdSize|0x00120000|UINT32|0x0000a104
+  gNexus5XPkgTokenSpaceGuid.PcdFdSize|0x00300000|UINT32|0x0000a104
 
   # Debug Screen Serial
   gNexus5XPkgTokenSpaceGuid.PcdEnableScreenSerial|TRUE|BOOLEAN|0x00000a105
