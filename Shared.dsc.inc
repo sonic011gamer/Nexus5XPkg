@@ -101,8 +101,7 @@
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf9000000
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|16
 
-  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x02800000      
-  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x13F00000   # Start here
+
 
   ## Default Terminal Type
   ## 0-PCANSI, 1-VT100, 2-VT00+, 3-UTF8, 4-TTYTERM
