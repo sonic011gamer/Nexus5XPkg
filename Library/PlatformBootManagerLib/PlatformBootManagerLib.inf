@@ -91,4 +91,5 @@
   gEfiSimpleFileSystemProtocolGuid
   gEsrtManagementProtocolGuid
   gEfiUsb2HcProtocolGuid
+  gQcomKeypadDeviceGuid
 
