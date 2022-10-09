@@ -557,7 +557,7 @@ PlatformBootManagerBeforeConsole (
   // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
   // on them to ConIn.
   //
-  FilterAndProcess (&gQcomKeypadDeviceGuid, NULL, AddInput);
+  //FilterAndProcess (&gQcomKeypadDeviceGuid, NULL, AddInput);
   // Register setup key then
   PlatformRegisterSetupKey();
 
