@@ -91,5 +91,4 @@
   gEfiSimpleFileSystemProtocolGuid
   gEsrtManagementProtocolGuid
   gEfiUsb2HcProtocolGuid
-  gEFIDroidKeypadDeviceProtocolGuid
 

@@ -627,12 +627,6 @@ PlatformBootManagerBeforeConsole (
   FilterAndProcess (&gEfiGraphicsOutputProtocolGuid, NULL, AddOutput);
 
   //
-  // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
-  // on them to ConIn.
-  //
-  FilterAndProcess (&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
-
-  //
   // Add the hardcoded short-form USB keyboard device path to ConIn.
   //
   EfiBootManagerUpdateConsoleVariable (ConIn,
