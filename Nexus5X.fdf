@@ -6,7 +6,7 @@ BlockSize     = 0x200
 NumBlocks     = 0x1800
 
 # 512 bytes of configuration header & 8 bytes of image header
-0x5F800000|0x00300000
+0x5F800000|0x5FB00000
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
 FV = FVMAIN_COMPACT
 
