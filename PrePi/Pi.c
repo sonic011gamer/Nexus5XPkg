@@ -67,10 +67,7 @@ VOID PrePiMain(IN VOID *StackBase, IN UINTN StackSize)
   PrePeiSetHobList(HobList);
 
   // Invalidate cache
-  InvalidateDataCacheRange(
-      (VOID *)(UINTN)PcdGet64(PcdFdBaseAddress), PcdGet32(PcdFdSize));
-
-  WriteBackInvalidateDataCacheRange( (VOID *)(UINTN)(PcdGet64(PcdPreAllocatedMemorySize) + PcdGet64(PcdSystemMemoryBase)), PcdGet32(PcdUefiMemPoolSize));
+  InvalidateDataCacheRange((VOID *)(UINTN)PcdGet64(PcdFdBaseAddress), PcdGet32(PcdFdSize));
 
   // Initialize MMU
   Status = MemoryPeim(UefiMemoryBase, UefiMemorySize);
