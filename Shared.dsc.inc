@@ -98,7 +98,7 @@
   gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderData|0
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
-  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf9000000
+  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf300000
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|16
 
 
