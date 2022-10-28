@@ -51,7 +51,7 @@
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 11"
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 680 Processor (6225)"
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|" "
-  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x02800000      
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x04800000
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolBase|0xD0300000   # Start here
   
 !include Nexus5XPkg/Shared.dsc.inc
