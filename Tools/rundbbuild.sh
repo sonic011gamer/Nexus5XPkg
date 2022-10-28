@@ -122,7 +122,7 @@ function CIBuild()
 {
   if [ "$DB820C" = TRUE ]; then
     ./Dragonboard820cPkg/Tools/edk2-build.ps1 -Clean
-  elif [ "$LUMIA950XL" = TRUE ]; then
+  elif [ "$NEXUS5X" = TRUE ]; then
     ./Nexus5XPkg/Tools/edk2-build.ps1 -Clean
   else
     ./DragonboardPkg/Tools/edk2-build.ps1 -Clean
