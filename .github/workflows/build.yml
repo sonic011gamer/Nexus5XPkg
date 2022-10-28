@@ -17,7 +17,7 @@ jobs:
       run: sudo apt update
     
     - name: Install VSTS dependencies
-      run: sudo apt install uuid-dev flex bison crossbuild-essential-arm64
+      run: sudo apt install uuid-dev flex bison gcc-12-aarch64-linux-gnu
     
     - name: Fix directory links
       run: sudo ln -sfn $(pwd) ../Nexus5XPkg

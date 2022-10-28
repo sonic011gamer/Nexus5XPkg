@@ -33,11 +33,6 @@ apt-get update
 # Install PowerShell
 apt-get install -y powershell
 
-# Linaro Toolchains
-cd /opt
-wget http://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-elf/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf.tar.xz
-tar xf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf.tar.xz
-
 # Skip ACPI toolchain (prebuilt tables)
 
 echo "Build components are ready. If you would like to build ACPI tables, please install recent acpica tools."
