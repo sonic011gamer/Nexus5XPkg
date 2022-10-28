@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v3
@@ -17,7 +17,7 @@ jobs:
       run: sudo apt update
     
     - name: Install VSTS dependencies
-      run: sudo apt install uuid-dev flex bison gcc-aarch64-linux-gnu
+      run: sudo apt install uuid-dev flex bison crossbuild-essential-arm64
     
     - name: Fix directory links
       run: sudo ln -sfn $(pwd) ../Nexus5XPkg

@@ -37,8 +37,8 @@ if ($null -eq (Test-Path -Path "Nexus5XPkg")) {
 }
 
 # Set environment again for legacy compatibility. On newer systems, GCC should be used from package source.
-Write-Output "Set legacy environment."
-$env:PATH = "/opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf/bin:/opt/gcc-linaro-7.5.0-2019.12-x86_64_arm-eabi/bin:$($env:PATH)"
+#Write-Output "Set legacy environment."
+#$env:PATH = "/opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf/bin:/opt/gcc-linaro-7.5.0-2019.12-x86_64_arm-eabi/bin:$($env:PATH)"
 
 # Probe GCC
 # Probe GCC. Use the most suitable one
