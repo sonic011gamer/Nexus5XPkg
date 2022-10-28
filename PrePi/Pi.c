@@ -49,7 +49,7 @@ VOID PrePiMain(IN VOID *StackBase, IN UINTN StackSize)
   // Declare UEFI region
   MemoryBase     = FixedPcdGet32(PcdSystemMemoryBase);
   MemorySize     = FixedPcdGet32(PcdSystemMemorySize);
-  UefiMemoryBase = MemoryBase + FixedPcdGet32(PcdPreAllocatedMemorySize);
+  UefiMemoryBase = FixedPcdGet32(PcdUefiMemPoolBase);
   UefiMemorySize = FixedPcdGet32(PcdUefiMemPoolSize);
   StackBase      = (VOID *)(UefiMemoryBase + UefiMemorySize - StackSize);
 

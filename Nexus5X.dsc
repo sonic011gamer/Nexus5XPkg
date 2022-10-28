@@ -52,6 +52,6 @@
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 680 Processor (6225)"
   gNexus5XPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|" "
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x02800000      
-  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x13F00000   # Start here
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolBase|0xD0300000   # Start here
   
 !include Nexus5XPkg/Shared.dsc.inc

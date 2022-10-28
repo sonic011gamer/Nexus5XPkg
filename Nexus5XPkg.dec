@@ -128,5 +128,5 @@
   gNexus5XPkgTokenSpaceGuid.PcdEnableScreenSerial|TRUE|BOOLEAN|0x00000a105
   
   # Memory allocation
-  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize|0x59000000|UINT64|0x00000a106 # 0x13F00000
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolBase|0xD0300000|UINT64|0x00000a106 # 0x13F00000
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize|0x02800000|UINT32|0x00000a107

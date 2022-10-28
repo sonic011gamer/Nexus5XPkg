@@ -62,28 +62,33 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
     { "Kernel",           0x40000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
     { "HYP",              0x45700000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
     { "Boot Info",        0x45D00000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
-    { "AOP CMD DB",       0x85F00000, 0x00040000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+//  { "AOP CMD DB",       0x85F00000, 0x00040000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
     { "SMEM",             0x46000000, 0x00200000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
     { "PIL Reserved",     0x4AB00000, 0x0A400000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-    { "DXE Heap",         0x53F00000, 0x02800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK},
     { "DBI Dump",         0x56700000, 0x00A00000, NoHob , MMAP_IO, INITIALIZED, Conv, UNCACHED_UNBUFFERED_XN},
     { "Sched Heap",       0x57100000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
     { "Display Reserved", 0x5C000000, 0x01000000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
     { "LAST LOG",         0x5D000000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
     { "FV Region",        0x5F800000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
     { "ABOOT FV",         0x5FA00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
-    { "UEFI FD",          0x5FC00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
     { "SEC Heap",         0x5FF00000, 0x0008C000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
     { "CPU Vectors",      0x5FF8C000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
     { "MMU PageTables",   0x5FF8D000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
     { "UEFI Stack",       0x5FF90000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
     { "Log Buffer",       0x5FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
     { "Info Blk",         0x5FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN}, 
-
-/* RAM partition regions */
-// Memory hole
-// 0x60000000 - 0x98FFFFFF
-    { "RAM Partition",    0x99000000, 0x67000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+    /* Memory hole (0x60000000 - 0x638FFFFF) */
+    { "RAM Partition",    0x63900000, 0x1A400000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+    /* DDR Bank 0 End */
+    /* Carveout Region (0x7DD00000 -> 0x80000000, size 0x02300000) */
+    /* DDR Bank 1 Start */
+    { "RAM Partition",    0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+    /* DDR Bank 1 End */
+    /* DDR Bank 2 Start */
+    { "RAM Partition",    0xC0000000, 0x10000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+    { "UEFI FD",          0xD0000000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+    { "DXE Heap",         0xD0300000, 0x02800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK},
+    { "RAM Partition",    0xD2B00000, 0x6D500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 
 //--------------------- Other ---------------------
     { "RPM_SS_MSG_RAM",   0x045F0000, 0x00007000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},

@@ -70,7 +70,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize
-  gNexus5XPkgTokenSpaceGuid.PcdPreAllocatedMemorySize
+  gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolBase
   gNexus5XPkgTokenSpaceGuid.PcdUefiMemPoolSize
   gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferAddress
   gNexus5XPkgTokenSpaceGuid.PcdPStoreBufferSize
