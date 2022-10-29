@@ -1,5 +1,5 @@
 # Create uefi.img
-cat ./BootShim/BootShim.bin ../edk2/Build/Nexus5X-AARCH64/RELEASE_GCC5/FV/MSM8992_EFI.fd ./device-specific/dummykernel > ./device-specific/bootpayload.bin
+cat ./BootShim/BootShim.bin ../edk2/Build/Nexus5X-AARCH64/DEBUG_GCC5/FV/MSM8992_EFI.fd ./device-specific/dummykernel > ./device-specific/bootpayload.bin
 
 python3 ./Tools/mkbootimg.py \
   --kernel ./device-specific/bootpayload.bin \
