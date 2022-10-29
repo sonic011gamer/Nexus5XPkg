@@ -52,7 +52,7 @@
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|18
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|19
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xf200000
-  gArmTokenSpaceGuid.PcdGicReDistributorsBase|0xf300000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xf300000
 
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Under the bed blue mass"
