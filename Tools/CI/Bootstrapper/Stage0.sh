@@ -35,7 +35,7 @@ apt-get install -y powershell
 
 # Linaro Toolchains
 cd /opt
-wget https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-elf.tar.xz?rev=73ff9780c12348b1b6772a1f54ab4bb3&hash=B80470312E67CF1F157D0A883FDEB279
+wget https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-elf.tar.xz
 tar xf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-elf.tar.xz
 
 # Skip ACPI toolchain (prebuilt tables)
