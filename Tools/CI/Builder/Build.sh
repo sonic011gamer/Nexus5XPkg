@@ -6,7 +6,7 @@
 #
 
 # Export AArch64 Tools prefix on CI
-export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-
+export GCC5_AARCH64_PREFIX=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-elf/bin/aarch64-none-elf-
 # Export BUILDALL flags
 export BUILDALL=1
 
