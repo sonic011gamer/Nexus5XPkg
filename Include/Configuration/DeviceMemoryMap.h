@@ -89,7 +89,7 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
     /* DDR Bank 2 Start */
     { "RAM Partition",    0xC0000000, 0x10000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
     { "UEFI FD",          0xD0000000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-    { "DXE Heap",         0xD0300000, 0x04800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK},
+    { "DXE Heap",         0xD0300000, 0x04800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
     { "RAM Partition",    0xD4B00000, 0x6b500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 
 //--------------------- Other ---------------------
