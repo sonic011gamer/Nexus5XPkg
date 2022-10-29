@@ -160,7 +160,7 @@ foreach ($target in $availableTargets) {
     if ($Release) {
         build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5 -b RELEASE
     } else {
-        build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5 -b RELEASE
+        build -a AARCH64 -p Nexus5XPkg/$($target).dsc -t GCC5
     }
 
     if (-not $?) {
