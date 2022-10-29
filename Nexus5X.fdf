@@ -37,7 +37,12 @@ READ_LOCK_STATUS   = TRUE
 
     # Next, install cpu protocol and enable the interrupt controller
     INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-    INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+FILE DRIVER = de371f7c-dec4-4d21-adf1-593abcc15882  {
+  SECTION DXE_DEPEX = Nexus5XPkg/XBL/ArmGic.dxe.depex
+  SECTION PE32 = Nexus5XPkg/XBL/ArmGic.pe
+  SECTION UI = "ArmGicDxe"
+
+}
   }
 
   # Architecture services (PI Stage)
