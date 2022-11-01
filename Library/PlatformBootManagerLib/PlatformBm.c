@@ -493,7 +493,7 @@ PlatformRegisterSetupKey(
   //
   PowerBtn.ScanCode    = SCAN_NULL;
   PowerBtn.UnicodeChar = CHAR_CARRIAGE_RETURN;
-  Status = EfiBootManagerGetBootManagerMenu(&BootOption);
+  Status = EfiBootManagerGetBootManagerMenu(&BootManagerMenu);
   ASSERT_EFI_ERROR(Status);
   Status = EfiBootManagerAddKeyOptionVariable(
       NULL, 
