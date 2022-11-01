@@ -311,7 +311,6 @@ AddOutput (
   DEBUG ((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
     ReportText));
 }
-
 EFI_STATUS
 ConsoleSetBestMode (
   IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *Console
@@ -345,37 +344,6 @@ ConsoleSetBestMode (
   Status = Console->SetMode (Console, BestMode);
 
   return Status;
-}
-
-
-
-STATIC
-VOID
-EFIAPI
-AddInput (
-  IN EFI_HANDLE   Handle,
-  IN CONST CHAR16 *ReportText
-  )
-{
-  EFI_STATUS               Status;
-  EFI_DEVICE_PATH_PROTOCOL *DevicePath;
-
-  DevicePath = DevicePathFromHandle (Handle);
-  if (DevicePath == NULL) {
-    DEBUG ((EFI_D_ERROR, "%a: %s: handle %p: device path not found\n",
-      __FUNCTION__, ReportText, Handle));
-    return;
-  }
-
-  Status = EfiBootManagerUpdateConsoleVariable (ConIn, DevicePath, NULL);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: %s: adding to ConIn: %r\n", __FUNCTION__,
-      ReportText, Status));
-    return;
-  }
-
-  DEBUG ((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
-    ReportText));
 }
 
 STATIC
@@ -553,13 +521,8 @@ PlatformBootManagerBeforeConsole (
   EfiBootManagerUpdateConsoleVariable (ConIn,
     (EFI_DEVICE_PATH_PROTOCOL *)&mUsbKeyboard, NULL);
 
-  //
-  // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
-  // on them to ConIn.
-  //
-//  FilterAndProcess (&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
   // Register setup key then
-//  PlatformRegisterSetupKey();
+  PlatformRegisterSetupKey();
 
   //
   // Add the hardcoded serial console device path to ConIn, ConOut, ErrOut.
@@ -665,65 +628,5 @@ PlatformBootManagerWaitCallback (
              );
   if (EFI_ERROR (Status)) {
     Print (L".");
-  }
-}
-
-/**
-  The function is called when no boot option could be launched,
-  including platform recovery options and options pointing to applications
-  built into firmware volumes.
-
-  If this function returns, BDS attempts to enter an infinite loop.
-**/
-VOID
-EFIAPI
-PlatformBootManagerUnableToBoot (
-  VOID
-  )
-{
-  EFI_STATUS                   Status;
-  EFI_INPUT_KEY                Key;
-  EFI_BOOT_MANAGER_LOAD_OPTION BootManagerMenu;
-  UINTN                        Index;
-
-  //
-  // BootManagerMenu doesn't contain the correct information when return status
-  // is EFI_NOT_FOUND.
-  //
-  Status = EfiBootManagerGetBootManagerMenu (&BootManagerMenu);
-  if (EFI_ERROR (Status)) {
-    return;
-  }
-  //
-  // Normally BdsDxe does not print anything to the system console, but this is
-  // a last resort -- the end-user will likely not see any DEBUG messages
-  // logged in this situation.
-  //
-  // AsciiPrint() will NULL-check gST->ConOut internally. We check gST->ConIn
-  // here to see if it makes sense to request and wait for a keypress.
-  //
-  if (gST->ConIn != NULL) {
-    AsciiPrint (
-      "%a: No bootable option or device was found.\n"
-      "%a: Press any key to enter the Boot Manager Menu.\n",
-      gEfiCallerBaseName,
-      gEfiCallerBaseName
-      );
-    Status = gBS->WaitForEvent (1, &gST->ConIn->WaitForKey, &Index);
-    ASSERT_EFI_ERROR (Status);
-    ASSERT (Index == 0);
-
-    //
-    // Drain any queued keys.
-    //
-    while (!EFI_ERROR (gST->ConIn->ReadKeyStroke (gST->ConIn, &Key))) {
-      //
-      // just throw away Key
-      //
-    }
-  }
-
-  for (;;) {
-    EfiBootManagerBoot (&BootManagerMenu);
   }
 }
