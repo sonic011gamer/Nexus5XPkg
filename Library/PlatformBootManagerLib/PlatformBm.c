@@ -557,9 +557,9 @@ PlatformBootManagerBeforeConsole (
   // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
   // on them to ConIn.
   //
-  FilterAndProcess (&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
+//  FilterAndProcess (&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
   // Register setup key then
-  PlatformRegisterSetupKey();
+//  PlatformRegisterSetupKey();
 
   //
   // Add the hardcoded serial console device path to ConIn, ConOut, ErrOut.
